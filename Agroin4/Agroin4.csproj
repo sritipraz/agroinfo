@@ -170,12 +170,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\articleController.cs" />
     <Compile Include="Controllers\cropController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\login_asController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\registrationController.cs" />
+    <Compile Include="Controllers\shopsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +204,14 @@
     <Compile Include="Migrations\201706261003491_a3added.cs" />
     <Compile Include="Migrations\201706261003491_a3added.Designer.cs">
       <DependentUpon>201706261003491_a3added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707050757280_articleadded.cs" />
+    <Compile Include="Migrations\201707050757280_articleadded.Designer.cs">
+      <DependentUpon>201707050757280_articleadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707050803510_shopadded.cs" />
+    <Compile Include="Migrations\201707050803510_shopadded.Designer.cs">
+      <DependentUpon>201707050803510_shopadded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3767,9 +3777,16 @@
     <Content Include="Views\registration\Register.cshtml" />
     <Content Include="Views\login_as\Login.cshtml" />
     <Content Include="Views\crop\search.cshtml" />
+    <Content Include="Views\Shared\Create.cshtml" />
+    <Content Include="Views\shops\Delete.cshtml" />
+    <Content Include="Views\shops\Details.cshtml" />
+    <Content Include="Views\shops\Edit.cshtml" />
+    <Content Include="Views\shops\Index.cshtml" />
+    <Content Include="Views\crop\search_result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\article\" />
     <Folder Include="Views\loginto\" />
     <Folder Include="Views\login\" />
   </ItemGroup>
@@ -3799,6 +3816,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706261003491_a3added.resx">
       <DependentUpon>201706261003491_a3added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707050757280_articleadded.resx">
+      <DependentUpon>201707050757280_articleadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707050803510_shopadded.resx">
+      <DependentUpon>201707050803510_shopadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,7 +7,7 @@ namespace Agroin4.Models
 {
     public class shop
     {
-        public int shop_id { get; set; }
+        public int id { get; set; }
         public string shop_name { get; set; }
         public int district_id { get; set; }
         public string address { get; set; }

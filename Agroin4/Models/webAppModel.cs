@@ -25,6 +25,9 @@ namespace Agroin4.Models
         public virtual DbSet<district>districts { get; set; }
         public virtual DbSet<crop>crops { get; set; }
         public virtual DbSet<seasondef> seasondefs { get; set; }
+        
+        public virtual DbSet<article>articles { get; set; }
+        public virtual DbSet<shop> shops { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

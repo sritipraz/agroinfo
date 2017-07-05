@@ -13,7 +13,7 @@ namespace Agroin4.Controllers
         // GET: crop
         public ActionResult search()
         {
-            ViewData["IdTopographyList"] = db.topographys.Select(p => new SelectListItem() { Text = p.topography_name, Value = p.id.ToString() }).AsEnumerable();
+            ViewData["IdTopographyList"] = db.topographys.Select(p => new SelectListItem(){ Text = p.topography_name, Value = p.id.ToString() }).AsEnumerable();
             //ViewData["IdseasonList"] = db.seasondefs.Select(p => new SelectListItem() { Text = p.season_name, Value = p.id.ToString() }).AsEnumerable();
           
 

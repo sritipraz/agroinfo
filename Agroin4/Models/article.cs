@@ -7,7 +7,7 @@ namespace Agroin4.Models
 {
     public class article
     {
-        public int article_id { get; set; }
+        public int id { get; set; }
         public string article_name { get; set; }
         public int crop_id { get; set; }
         public DateTime date_time { get; set; }
