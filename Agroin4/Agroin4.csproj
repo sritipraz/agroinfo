@@ -3777,16 +3777,15 @@
     <Content Include="Views\registration\Register.cshtml" />
     <Content Include="Views\login_as\Login.cshtml" />
     <Content Include="Views\crop\search.cshtml" />
-    <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\shops\Delete.cshtml" />
     <Content Include="Views\shops\Details.cshtml" />
     <Content Include="Views\shops\Edit.cshtml" />
     <Content Include="Views\shops\Index.cshtml" />
-    <Content Include="Views\crop\search_result.cshtml" />
+    <Content Include="Views\article\Create.cshtml" />
+    <Content Include="Views\shops\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\article\" />
     <Folder Include="Views\loginto\" />
     <Folder Include="Views\login\" />
   </ItemGroup>
