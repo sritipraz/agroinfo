@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Agroin4.Models.crop>
+
+@*@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        @Html.Action("viewdata", "crop", new { model = item })
+
+    }
+}*@
+
+@if (Model != null)
+{
+    <table>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.crop_name)
+            </th>
+
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.crop_name)
+                </td>
+
+                @*<td>
+        @Html.DisplayFor(modelItem => item.topography_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.season_id)
+    </td>*@
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                </td>
+                     </tr>
+                        }
+
+                        </table>
+                    }

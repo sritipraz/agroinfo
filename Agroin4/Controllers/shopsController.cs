@@ -116,6 +116,31 @@ namespace Agroin4.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult search()
+        {
+            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+           
+
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult search(crop modelobj)
+        {
+            
+
+            return RedirectToAction("search1", new { model = modelobj });
+            
+
+        }
+
+        public ActionResult search1(Models.shop modelobj)
+        {
+            var shopModel = db.shops.Where(p => p.district_id == modelobj.district_id).ToList();
+            return View(shopModel);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

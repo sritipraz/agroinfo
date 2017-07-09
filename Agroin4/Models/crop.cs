@@ -15,7 +15,7 @@ namespace Agroin4.Models
         public string crop_name { get; set; }
        // [Required(ErrorMessage = "Description is required")]
 
-        public string description { get; set; }
+       
         [Required(ErrorMessage = "Topography is required")]
 
         public int topography_id { get; set; }

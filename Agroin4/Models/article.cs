@@ -13,6 +13,8 @@ namespace Agroin4.Models
         public DateTime date_time { get; set; }
         public int rating { get; set; }
         public  int expert_id { get; set; }
+
+        public string article_description { get; set; }
     
     }
 }

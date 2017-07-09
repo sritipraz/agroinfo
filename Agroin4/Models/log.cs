@@ -7,7 +7,7 @@ namespace Agroin4.Models
 {
     public class log
     {
-        public int log_id { get; set; }
+        public int id { get; set; }
         public int farmer_id { get; set; }
         public int qa_id { get; set; }
         public int crop_id { get; set; }

@@ -29,6 +29,10 @@ namespace Agroin4.Models
         public virtual DbSet<article>articles { get; set; }
         public virtual DbSet<shop> shops { get; set; }
 
+        public virtual DbSet<comment> comments { get; set; }
+        public virtual DbSet<sub_comment> sub_comments { get; set; }
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<registration_tb>().MapToStoredProcedures();

@@ -1,0 +1,27 @@
+﻿@model Agroin4.Models.crop
+
+<table>
+   
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.crop_name)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.topography_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.season_id)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.id })
+            </td>
+        </tr>
+    
+
+</table>
+
+
+

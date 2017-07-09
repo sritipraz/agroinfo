@@ -7,7 +7,7 @@ namespace Agroin4.Models
 {
     public class sub_comment
     {
-        public int sub_id { get; set; }
+        public int id { get; set; }
         public int comment_id { get; set; }
         public int user_id { get; set; }
         public string comment { get; set; }
