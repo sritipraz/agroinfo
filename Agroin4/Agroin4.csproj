@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\login_asController.cs" />
+    <Compile Include="Controllers\logsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\registrationController.cs" />
     <Compile Include="Controllers\shopsController.cs" />
@@ -224,6 +225,10 @@
     <Compile Include="Migrations\201707090855314_log_updateadded.cs" />
     <Compile Include="Migrations\201707090855314_log_updateadded.Designer.cs">
       <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707091009010_logadded.cs" />
+    <Compile Include="Migrations\201707091009010_logadded.Designer.cs">
+      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3800,6 +3805,11 @@
     <Content Include="Views\crop\viewdata.cshtml" />
     <Content Include="Views\shops\search.cshtml" />
     <Content Include="Views\shops\search1.cshtml" />
+    <Content Include="Views\logs\Create.cshtml" />
+    <Content Include="Views\logs\Delete.cshtml" />
+    <Content Include="Views\logs\Details.cshtml" />
+    <Content Include="Views\logs\Edit.cshtml" />
+    <Content Include="Views\logs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3847,6 +3857,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707090855314_log_updateadded.resx">
       <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091009010_logadded.resx">
+      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

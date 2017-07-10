@@ -10,135 +10,109 @@ using Agroin4.Models;
 
 namespace Agroin4.Controllers
 {
-    public class shopsController : Controller
+    public class logsController : Controller
     {
         private webAppModel db = new webAppModel();
 
-        // GET: shops
+        // GET: logs
         public ActionResult Index()
         {
-            return View(db.shops.ToList());
+            return View(db.logs.ToList());
         }
 
-        // GET: shops/Details/5
+        // GET: logs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            shop shop = db.shops.Find(id);
-            if (shop == null)
+            log log = db.logs.Find(id);
+            if (log == null)
             {
                 return HttpNotFound();
             }
-            return View(shop);
+            return View(log);
         }
 
-        // GET: shops/Create
+        // GET: logs/Create
         public ActionResult Create()
         {
-            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
             return View();
         }
 
-        // POST: shops/Create
+        // POST: logs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,shop_name,district_id,address,contact,email")] shop shop)
+        public ActionResult Create([Bind(Include = "id,farmer_id,qa_id,crop_id,district_id,production_quantity,production_area,year,season_id")] log log)
         {
             if (ModelState.IsValid)
             {
-                db.shops.Add(shop);
+                db.logs.Add(log);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(shop);
+            return View(log);
         }
 
-        // GET: shops/Edit/5
+        // GET: logs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            shop shop = db.shops.Find(id);
-            if (shop == null)
+            log log = db.logs.Find(id);
+            if (log == null)
             {
                 return HttpNotFound();
             }
-            return View(shop);
+            return View(log);
         }
 
-        // POST: shops/Edit/5
+        // POST: logs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,shop_name,district_id,address,contact,email")] shop shop)
+        public ActionResult Edit([Bind(Include = "id,farmer_id,qa_id,crop_id,district_id,production_quantity,production_area,year,season_id")] log log)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shop).State = EntityState.Modified;
+                db.Entry(log).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shop);
+            return View(log);
         }
 
-        // GET: shops/Delete/5
+        // GET: logs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            shop shop = db.shops.Find(id);
-            if (shop == null)
+            log log = db.logs.Find(id);
+            if (log == null)
             {
                 return HttpNotFound();
             }
-            return View(shop);
+            return View(log);
         }
 
-        // POST: shops/Delete/5
+        // POST: logs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            shop shop = db.shops.Find(id);
-            db.shops.Remove(shop);
+            log log = db.logs.Find(id);
+            db.logs.Remove(log);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult search()
-        {
-            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
-           
-
-
-            return View();
-        }
-        [HttpPost]
-        public ActionResult search(shop modelobj)
-        {
-            
-
-            return RedirectToAction("search1", new { model = modelobj });
-            
-
-        }
-
-        public ActionResult search1(Models.shop modelobj)
-        {
-            var shopModel = db.shops.Where(p => p.district_id == modelobj.district_id).ToList();
-            return View(shopModel);
-
         }
 
         protected override void Dispose(bool disposing)

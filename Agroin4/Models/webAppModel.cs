@@ -31,7 +31,7 @@ namespace Agroin4.Models
 
         public virtual DbSet<comment> comments { get; set; }
         public virtual DbSet<sub_comment> sub_comments { get; set; }
-        
+        public virtual DbSet<log> logs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
