@@ -38,7 +38,8 @@ namespace Agroin4.Controllers
         // GET: shops/Create
         public ActionResult Create()
         {
-            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+            ViewData["DistrictIdList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+
             return View();
         }
 
@@ -119,24 +120,21 @@ namespace Agroin4.Controllers
         public ActionResult search()
         {
             ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
-           
-
-
             return View();
         }
         [HttpPost]
         public ActionResult search(shop modelobj)
         {
-            
-
-            return RedirectToAction("search1", new { model = modelobj });
-            
+            int id1 = modelobj.district_id;
+            return RedirectToAction("search1", new { Id=id1});
+            //passing model obj ta search1(action result) to send the value of district_id 
+            //choosed by user
 
         }
 
-        public ActionResult search1(Models.shop modelobj)
+        public ActionResult search1(int Id)
         {
-            var shopModel = db.shops.Where(p => p.district_id == modelobj.district_id).ToList();
+            var shopModel = db.shops.Where(p => p.district_id == Id).ToList();
             return View(shopModel);
 
         }

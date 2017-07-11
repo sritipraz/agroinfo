@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,5 +14,8 @@ namespace Agroin4.Models
         public string address { get; set; }
         public long contact { get; set; }
         public string email { get; set; }
+
+        [ForeignKey("district_id")]
+        public virtual district districts { get; set; }
     }
 }

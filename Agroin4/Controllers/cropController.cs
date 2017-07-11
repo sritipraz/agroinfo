@@ -23,23 +23,19 @@ namespace Agroin4.Controllers
         [HttpPost]
         public ActionResult search(crop modelobj)
         {
-            //if (ModelState.IsValid)
-            //{
-                
-                return RedirectToAction("search1", new { model = modelobj });
-            //}
+            int id1 = modelobj.topography_id;
+            int id2 = modelobj.season_id;
 
-            //return View(modelobj);
-            //var cropModel = db.crops.Where(p => p.topography_id == modelobj.topography_id && p.season_id== modelobj.season_id).ToList();
-            //return View(cropModel);
+            return RedirectToAction("search1", new { Id1=id1,Id2=id2 });
+            
 
         }
 
-        public ActionResult search1(Models.crop modelobj)
+        public ActionResult search1(int Id1,int Id2)
         {
-            var cropModel = db.crops.Where(p => p.topography_id == modelobj.topography_id 
-                                && p.season_id == modelobj.season_id).ToList();
-            return View(cropModel.ToList());
+            var cropModel = db.crops.Where(p => p.topography_id == Id1 
+                                && p.season_id == Id2).ToList();
+            return View(cropModel);
 
         }
 
