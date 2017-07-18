@@ -1,6 +1,12 @@
 ﻿@model Agroin4.Models.crop
 
-@using (Html.BeginForm()) 
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -8,24 +14,22 @@
         <h4>crop</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.crop_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("crop_name", ViewData["IdCropList"] as IEnumerable<SelectListItem>, "Select Crop Name", htmlAttributes: new { @class = "form-control" })
-
-                
+                @Html.EditorFor(model => model.crop_name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.crop_name, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        
-
         <div class="form-group">
             @Html.LabelFor(model => model.topography_id, "topography_id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("topography_id", ViewData["IdTopographyList"] as IEnumerable<SelectListItem>, "Select topography", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("topography_id", ViewData["IdTopographyList"] as IEnumerable<SelectListItem>, "Select Topography", htmlAttributes: new { @class = "form-control" })
 
-                
+
                 @Html.ValidationMessageFor(model => model.topography_id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -33,16 +37,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.season_id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("season_id", ViewData["IdSeasonList"] as IEnumerable<SelectListItem>, "Select season", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("season_id", ViewData["IdSeasonList"] as IEnumerable<SelectListItem>, "Select Season", htmlAttributes: new { @class = "form-control" })
 
-               
+                
                 @Html.ValidationMessageFor(model => model.season_id, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

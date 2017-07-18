@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Agroin4.Models.CropViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="cropList" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.crop_name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.topography_Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.season_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.crop_name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.topography_Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.season_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#cropList').DataTable({
+                "order": [[3, "desc"]]
+            });
+        })
+
+    </script>
+}

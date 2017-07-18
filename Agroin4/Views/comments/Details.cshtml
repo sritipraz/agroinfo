@@ -1,0 +1,58 @@
+﻿@model Agroin4.Models.comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment.comment_text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment.comment_text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.article_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.article_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment_text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment_text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

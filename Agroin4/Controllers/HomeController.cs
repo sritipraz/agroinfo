@@ -10,6 +10,7 @@ namespace Agroin4.Controllers
     {
         public ActionResult Index()
         {
+            //ViewData["Userid"]=GetCurrentUserId()
             return View();
         }
 

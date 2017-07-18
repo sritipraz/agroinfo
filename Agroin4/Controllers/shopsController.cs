@@ -17,6 +17,7 @@ namespace Agroin4.Controllers
         // GET: shops
         public ActionResult Index()
         {
+            var shops = db.shops.Include(c => c.districts);
             return View(db.shops.ToList());
         }
 
@@ -32,13 +33,14 @@ namespace Agroin4.Controllers
             {
                 return HttpNotFound();
             }
-            return View(shop);
+            return View();
         }
 
         // GET: shops/Create
         public ActionResult Create()
         {
-            ViewData["DistrictIdList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+           // ViewData["DistrictIdList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
 
             return View();
         }
@@ -48,18 +50,27 @@ namespace Agroin4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,shop_name,district_id,address,contact,email")] shop shop)
+        public ActionResult Create( shop shop)
         {
             if (ModelState.IsValid)
             {
                 db.shops.Add(shop);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HR_COE");
             }
 
             return View(shop);
         }
 
+        public ContentResult HR_COE()
+        {
+            return Content("<script language='javascript' type='text/javascript'>alert     ('Requested Successfully ');</script>");
+        }
+        public ActionResult message()
+        {
+            TempData["testmsg"] = "<script>alert('Requested Successfully ');</script>";
+            return View();
+        }
         // GET: shops/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -67,6 +78,8 @@ namespace Agroin4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewData["IdDistrictList"] = db.districts.Select(p => new SelectListItem() { Text = p.district_name, Value = p.id.ToString() }).AsEnumerable();
+
             shop shop = db.shops.Find(id);
             if (shop == null)
             {

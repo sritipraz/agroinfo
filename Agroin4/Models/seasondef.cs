@@ -9,5 +9,7 @@ namespace Agroin4.Models
     {
         public int id{ get; set; }
         public string season_name { get; set; }
+        public virtual ICollection<crop> cropss { get; set; }
+
     }
 }

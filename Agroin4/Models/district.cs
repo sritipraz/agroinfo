@@ -9,7 +9,8 @@ namespace Agroin4.Models
     {
         public int id { get; set; }
         public string district_name { get; set; }
-       
+        public virtual ICollection<shop>shops { get; set; }
+
 
     }
 }

@@ -75,8 +75,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    
-                    <!-- Notifications -->
+                    @Html.Partial("_LoginPartial")
+
+         
+                    @*<!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
@@ -262,8 +264,8 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- #END# Tasks -->
-                    
+                    <!-- #END# Tasks -->*@
+
                 </ul>
             </div>
         </div>
@@ -280,18 +282,18 @@
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
                     <div class="email">john.doe@example.com</div>
-                    <div class="btn-group user-helper-dropdown">
-                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                            <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
-                        </ul>
-                    </div>
+                    @*<div class="btn-group user-helper-dropdown">
+                            <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                                <li role="seperator" class="divider"></li>
+                                <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                                <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                                <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                                <li role="seperator" class="divider"></li>
+                                <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            </ul>
+                        </div>*@
                 </div>
             </div>
             <!-- #User Info -->
@@ -308,39 +310,33 @@
                         </a>
                     </li>
                     @*<div class="col-md-3 col-lg-offset-1">
-                        <i class="material-icons">home</i>
-                    </div>
-                    <div class="col-md-8 ">
-                        <span>  @Html.ActionLink("Home", "Index", "Home")</span>
-                    </div>*@
-            </div>
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                    <i class="material-icons">visibility</i>
-                    <span>View log</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                    <i class="material-icons">store </i>
-                    <span>Search Shop Nearby</span>
-                </a>
-                @*<ul class="ml-menu">
-                    <li>
-                        <a href="javascript:void(0);">Fertilizer</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">Seed</a>
-                    </li>
-                </ul>*@
-            </li>
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                    <i class="material-icons">add_location</i>
-                    <span>Add a shop</span>
-                </a>
+                            <i class="material-icons">home</i>
+                        </div>
+                        <div class="col-md-8 ">
+                            <span>  @Html.ActionLink("Home", "Index", "Home")</span>
+                        </div>*@
 
-            </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">visibility</i>
+                            <span>View log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">store </i>
+                            <span>Search Shop Nearby</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">add_location</i>
+                            <span>Add a shop</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
             <!-- #Menu -->
             <!-- Footer -->
@@ -355,7 +351,7 @@
             <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
-        
+
     </section>
 
     <section class="content">
@@ -407,5 +403,7 @@
 
     <!-- Demo Js -->
     <script src="~/assets/js/demo.js"></script>
+
+    
 </body>
 </html>

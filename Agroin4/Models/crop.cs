@@ -22,7 +22,23 @@ namespace Agroin4.Models
         
         [ForeignKey ("topography_id")]
         public virtual topography topographys { get; set; }
-      //  [Required(ErrorMessage = "Season is required")]
+        //  [Required(ErrorMessage = "Season is required")]
         public int season_id { get; set; }
+        [ForeignKey("season_id")]
+
+        public virtual seasondef Season { get; set; }
     }
+
+    public class CropViewModel
+    {
+        public int id { get; set; }
+        public string crop_name { get; set; }
+        public int topography_id { get; set; }
+        public string topography_Name { get; set; }
+
+        public int season_id { get; set; }
+        public string season_Name { get; set; }
+
+    }
+
 }

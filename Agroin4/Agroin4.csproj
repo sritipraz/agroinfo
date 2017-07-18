@@ -170,8 +170,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\articleController.cs" />
-    <Compile Include="Controllers\cropController.cs" />
+    <Compile Include="Controllers\articlesController.cs" />
+    <Compile Include="Controllers\commentsController.cs" />
+    <Compile Include="Controllers\cropsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\login_asController.cs" />
@@ -238,9 +239,26 @@
     <Compile Include="Migrations\201707110951287_somt1added.Designer.cs">
       <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707120722213_upda_logadded.cs" />
+    <Compile Include="Migrations\201707120722213_upda_logadded.Designer.cs">
+      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707130743360_registeradded.cs" />
+    <Compile Include="Migrations\201707130743360_registeradded.Designer.cs">
+      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707171307200_cropview_modeladded.cs" />
+    <Compile Include="Migrations\201707171307200_cropview_modeladded.Designer.cs">
+      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707180410544_nullableArticle.cs" />
+    <Compile Include="Migrations\201707180410544_nullableArticle.Designer.cs">
+      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\article.cs" />
+    <Compile Include="Models\cal.cs" />
     <Compile Include="Models\comment.cs" />
     <Compile Include="Models\crop.cs" />
     <Compile Include="Models\district.cs" />
@@ -3801,16 +3819,11 @@
     <Content Include="Views\Shared\qa_layout.cshtml" />
     <Content Include="Views\registration\Register.cshtml" />
     <Content Include="Views\login_as\Login.cshtml" />
-    <Content Include="Views\crop\search.cshtml" />
     <Content Include="Views\shops\Delete.cshtml" />
     <Content Include="Views\shops\Details.cshtml" />
     <Content Include="Views\shops\Edit.cshtml" />
     <Content Include="Views\shops\Index.cshtml" />
     <Content Include="Views\shops\Create.cshtml" />
-    <Content Include="Views\crop\Create.cshtml" />
-    <Content Include="Views\article\Create.cshtml" />
-    <Content Include="Views\crop\search1.cshtml" />
-    <Content Include="Views\crop\viewdata.cshtml" />
     <Content Include="Views\shops\search.cshtml" />
     <Content Include="Views\shops\search1.cshtml" />
     <Content Include="Views\logs\Create.cshtml" />
@@ -3818,6 +3831,22 @@
     <Content Include="Views\logs\Details.cshtml" />
     <Content Include="Views\logs\Edit.cshtml" />
     <Content Include="Views\logs\Index.cshtml" />
+    <Content Include="Views\shops\message.cshtml" />
+    <Content Include="Views\crops\Create.cshtml" />
+    <Content Include="Views\crops\Delete.cshtml" />
+    <Content Include="Views\crops\Details.cshtml" />
+    <Content Include="Views\crops\Edit.cshtml" />
+    <Content Include="Views\crops\Index.cshtml" />
+    <Content Include="Views\articles\Create.cshtml" />
+    <Content Include="Views\articles\Delete.cshtml" />
+    <Content Include="Views\articles\Details.cshtml" />
+    <Content Include="Views\articles\Edit.cshtml" />
+    <Content Include="Views\articles\Index.cshtml" />
+    <Content Include="Views\comments\Create.cshtml" />
+    <Content Include="Views\comments\Delete.cshtml" />
+    <Content Include="Views\comments\Details.cshtml" />
+    <Content Include="Views\comments\Edit.cshtml" />
+    <Content Include="Views\comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3874,6 +3903,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707110951287_somt1added.resx">
       <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707120722213_upda_logadded.resx">
+      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707130743360_registeradded.resx">
+      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171307200_cropview_modeladded.resx">
+      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707180410544_nullableArticle.resx">
+      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
