@@ -13,7 +13,10 @@ namespace Agroin4.Controllers
     public class cropsController : Controller
     {
         private webAppModel db = new webAppModel();
-
+        public ActionResult Moreinfo(int id)
+        {
+            return RedirectToAction("Index","articles", new { Id= id});
+        }
         // GET: crops
         public ActionResult Index()
         {

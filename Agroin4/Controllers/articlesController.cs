@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Agroin4.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
@@ -15,9 +16,10 @@ namespace Agroin4.Controllers
         private webAppModel db = new webAppModel();
 
         // GET: articles
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(db.articles.ToList());
+            var articleobj = db.articles.Where(p => p.crop_id == id).ToList();
+            return View(articleobj);
         }
 
         // GET: articles/Details/5
@@ -53,6 +55,8 @@ namespace Agroin4.Controllers
         {
             if (ModelState.IsValid)
             {
+                article.expert_id = new Guid(User.Identity.GetUserId());
+                article.expert_email =(User.Identity.GetUserName());
                 article.date_time = DateTime.Now;
                 db.articles.Add(article);
                 db.SaveChanges();

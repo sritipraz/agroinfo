@@ -12,8 +12,9 @@ namespace Agroin4.Models
         public int crop_id { get; set; }
         public DateTime date_time { get; set; }
         public int rating { get; set; }
-        public  int expert_id { get; set; }
+        public  Guid expert_id { get; set; }
 
+        public string expert_email { get; set; }
         public string article_description { get; set; }
 
         public virtual ICollection<comment> comments { get; set; }
