@@ -43,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.expert_id)
+            @Html.DisplayNameFor(model => model.expert_email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.expert_id)
+            @Html.DisplayFor(model => model.expert_email)
         </dd>
 
         <dt>
@@ -60,7 +60,12 @@
 
     </dl>
 </div>
-
+@*<div>
+        @Html.Partial("/comments/index",new ViewDataDictionary { { "id",Model.id } })
+    </div>*@
+<div>
+    @Html.ActionLink("comment","comment",new {id=Model.id })
+</div>
 
 
 <p>

@@ -46,7 +46,7 @@ namespace Agroin4.Controllers
             ViewData["IdSeasonList"] = db.seasondefs.Select(p => new SelectListItem() { Text = p.season_name, Value = p.id.ToString() }).AsEnumerable();
             ViewData["IdTopographyList"] = db.topographys.Select(p => new SelectListItem() { Text = p.topography_name, Value = p.id.ToString() }).AsEnumerable();
             //ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name");
-            return View();
+            return PartialView();
         }
 
         // POST: crops/Create
@@ -64,7 +64,7 @@ namespace Agroin4.Controllers
             }
 
            // ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
-            return View(crop);
+            return PartialView(crop);
         }
 
         // GET: crops/Edit/5

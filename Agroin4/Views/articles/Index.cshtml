@@ -8,7 +8,8 @@
 <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create",null,new { id="createArticle", @class="btn btn-primary" })*@
+    <button type="button" class="btn btn-primary" id="createArticle"><span class="glyphicon glyphicon-plus"></span></button>
 </p>
 <table  id="articleList" class="table">
     <thead>
@@ -57,12 +58,29 @@
         }
 </tbody>
 </table>
+
+
+
 @section Scripts {
     <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
             $('articleList').DataTable();
         })
+
+        $("#createArticle").on('click', function () {
+            //ajax request
+            $.ajax({
+                url: '/articles/create',
+                type: 'get'
+            }).done(function (data) {
+                $("#modalBody").html(data);
+                $("#myModalLabel").html("Article - Create");
+                $('#myModal').modal('show');
+            }).fail(function(err){
+                alert(err);
+            });
+        });
 
     </script>
 }

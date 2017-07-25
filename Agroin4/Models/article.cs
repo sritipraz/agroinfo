@@ -17,7 +17,7 @@ namespace Agroin4.Models
         public string expert_email { get; set; }
         public string article_description { get; set; }
 
-        public virtual ICollection<comment> comments { get; set; }
+        //public virtual ICollection<comment> comments { get; set; }
 
     }
 }

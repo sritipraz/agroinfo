@@ -29,7 +29,7 @@ namespace Agroin4.Models
        public virtual DbSet<article>articles { get; set; }
         public virtual DbSet<shop> shops { get; set; }
 
-       public virtual DbSet<comment> comments { get; set; }
+       //public virtual DbSet<comment> comments { get; set; }
        // public virtual DbSet<sub_comment> sub_comments { get; set; }
         public virtual DbSet<log> logs { get; set; }
 
@@ -39,6 +39,8 @@ namespace Agroin4.Models
         }
 
         public System.Data.Entity.DbSet<Agroin4.Models.login_as> login_as { get; set; }
+
+        public System.Data.Entity.DbSet<Agroin4.Models.comment> comments { get; set; }
 
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }

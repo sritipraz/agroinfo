@@ -43,7 +43,7 @@ namespace Agroin4.Controllers
         public ActionResult Create()
         {
             ViewData["IdcropList"] = db.crops.Select(p => new SelectListItem() { Text = p.crop_name, Value = p.id.ToString() }).AsEnumerable();
-            return View();
+            return PartialView();
         }
 
         // POST: articles/Create
@@ -66,6 +66,11 @@ namespace Agroin4.Controllers
             return View(article);
         }
 
+        public ActionResult comment(int id)
+        {
+            return RedirectToAction("create","comments1", new { Id= id});
+
+        }
         // GET: articles/Edit/5
         public ActionResult Edit(int? id)
         {

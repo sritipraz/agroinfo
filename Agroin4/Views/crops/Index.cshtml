@@ -7,7 +7,9 @@
 <h2>Index</h2>
 <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-primary" id="createCrop"><span class="glyphicon glyphicon-plus"></span></button>
+
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table id="cropList" class="table">
     <thead>
@@ -59,6 +61,18 @@
                 "order": [[3, "desc"]]
             });
         })
-
+        $("#createCrop").on('click', function () {
+            //ajax request
+            $.ajax({
+                url: '/crops/create',
+                type: 'get'
+            }).done(function (data) {
+                $("#modalBody").html(data);
+                $("#myModalLabel").html("Crop - Create");
+                $('#myModal').modal('show');
+            }).fail(function (err) {
+                alert(err);
+            });
+        });
     </script>
 }

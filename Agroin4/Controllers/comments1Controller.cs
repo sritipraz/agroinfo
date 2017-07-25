@@ -7,21 +7,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Agroin4.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
-    public class commentsController : Controller
+    public class comments1Controller : Controller
     {
         private webAppModel db = new webAppModel();
 
-        // GET: comments
+        // GET: comments1
         public ActionResult Index()
         {
-            var comments = db.comments.Include(c => c.Comment);
+            var comments = db.comments.Include(c => c.article).Include(c => c.Comment);
             return View(comments.ToList());
         }
 
-        // GET: comments/Details/5
+        // GET: comments1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,14 +37,16 @@ namespace Agroin4.Controllers
             return View(comment);
         }
 
-        // GET: comments/Create
-        public ActionResult Create()
+        // GET: comments1/Create
+        public ActionResult Create(int id)
         {
+            comment commentobj = new comment() { article_id = id };
+           // ViewBag.article_id = new SelectList(db.articles, "id", "article_name");
            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text");
-            return View();
+            return View(commentobj);
         }
 
-        // POST: comments/Create
+        // POST: comments1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -52,16 +55,21 @@ namespace Agroin4.Controllers
         {
             if (ModelState.IsValid)
             {
+                comment.user_id = new Guid(User.Identity.GetUserId());
+                //comment.user_email = (User.Identity.GetUserName());
+                comment.TimeOfPost = DateTime.Now;
+                
                 db.comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
             ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
-        // GET: comments/Edit/5
+        // GET: comments1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,16 +81,17 @@ namespace Agroin4.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
             ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
-        // POST: comments/Edit/5
+        // POST: comments1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,user_id,article_id,comment_text,status,parentComment")] comment comment)
+        public ActionResult Edit([Bind(Include = "id,user_id,comment_text,TimeOfPost,parentComment,article_id")] comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -90,11 +99,12 @@ namespace Agroin4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
             ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
-        // GET: comments/Delete/5
+        // GET: comments1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +119,7 @@ namespace Agroin4.Controllers
             return View(comment);
         }
 
-        // POST: comments/Delete/5
+        // POST: comments1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

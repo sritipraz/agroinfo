@@ -171,7 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\articlesController.cs" />
-    <Compile Include="Controllers\commentsController.cs" />
+    <Compile Include="Controllers\comments1Controller.cs" />
     <Compile Include="Controllers\cropsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
@@ -270,6 +270,18 @@
     <Compile Include="Migrations\201707190856334_useremail_article.cs" />
     <Compile Include="Migrations\201707190856334_useremail_article.Designer.cs">
       <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707231210245_commentchange.cs" />
+    <Compile Include="Migrations\201707231210245_commentchange.Designer.cs">
+      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707250635219_commentexclude.cs" />
+    <Compile Include="Migrations\201707250635219_commentexclude.Designer.cs">
+      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707250641233_commentinclude.cs" />
+    <Compile Include="Migrations\201707250641233_commentinclude.Designer.cs">
+      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3794,11 +3806,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\articles\Create.cshtml" />
-    <Content Include="Views\articles\Delete.cshtml" />
-    <Content Include="Views\articles\Details.cshtml" />
-    <Content Include="Views\articles\Edit.cshtml" />
-    <Content Include="Views\articles\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3862,6 +3869,16 @@
     <Content Include="Views\comments\Details.cshtml" />
     <Content Include="Views\comments\Edit.cshtml" />
     <Content Include="Views\comments\Index.cshtml" />
+    <Content Include="Views\comments1\Create.cshtml" />
+    <Content Include="Views\comments1\Delete.cshtml" />
+    <Content Include="Views\comments1\Details.cshtml" />
+    <Content Include="Views\comments1\Edit.cshtml" />
+    <Content Include="Views\comments1\Index.cshtml" />
+    <Content Include="Views\articles\Create.cshtml" />
+    <Content Include="Views\articles\Delete.cshtml" />
+    <Content Include="Views\articles\Details.cshtml" />
+    <Content Include="Views\articles\Edit.cshtml" />
+    <Content Include="Views\articles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3942,6 +3959,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707190856334_useremail_article.resx">
       <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707231210245_commentchange.resx">
+      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707250635219_commentexclude.resx">
+      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707250641233_commentinclude.resx">
+      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
