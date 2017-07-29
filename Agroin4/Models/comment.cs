@@ -10,6 +10,8 @@ namespace Agroin4.Models
     {
         public int id { get; set; }
         public Guid user_id { get; set; }
+
+        public string user_email { get; set; }
         public string comment_text { get; set; }
        
         public DateTime TimeOfPost { get; set; }

@@ -14,7 +14,11 @@ namespace Agroin4.Controllers
     public class articlesController : Controller
     {
         private webAppModel db = new webAppModel();
+        public ActionResult comment(int id)
+        {
+            return RedirectToAction("create", "comments", new { Id = id });
 
+        }
         // GET: articles
         public ActionResult Index(int? id)
         {
@@ -66,11 +70,7 @@ namespace Agroin4.Controllers
             return View(article);
         }
 
-        public ActionResult comment(int id)
-        {
-            return RedirectToAction("create","comments1", new { Id= id});
-
-        }
+        
         // GET: articles/Edit/5
         public ActionResult Edit(int? id)
         {

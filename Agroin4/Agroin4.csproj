@@ -283,6 +283,10 @@
     <Compile Include="Migrations\201707250641233_commentinclude.Designer.cs">
       <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707251400393_name_comment.cs" />
+    <Compile Include="Migrations\201707251400393_name_comment.Designer.cs">
+      <DependentUpon>201707251400393_name_comment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\article.cs" />
@@ -3806,6 +3810,11 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\comments1\Create.cshtml" />
+    <Content Include="Views\comments1\Delete.cshtml" />
+    <Content Include="Views\comments1\Details.cshtml" />
+    <Content Include="Views\comments1\Edit.cshtml" />
+    <Content Include="Views\comments1\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3864,16 +3873,6 @@
     <Content Include="Views\crops\Details.cshtml" />
     <Content Include="Views\crops\Edit.cshtml" />
     <Content Include="Views\crops\Index.cshtml" />
-    <Content Include="Views\comments\Create.cshtml" />
-    <Content Include="Views\comments\Delete.cshtml" />
-    <Content Include="Views\comments\Details.cshtml" />
-    <Content Include="Views\comments\Edit.cshtml" />
-    <Content Include="Views\comments\Index.cshtml" />
-    <Content Include="Views\comments1\Create.cshtml" />
-    <Content Include="Views\comments1\Delete.cshtml" />
-    <Content Include="Views\comments1\Details.cshtml" />
-    <Content Include="Views\comments1\Edit.cshtml" />
-    <Content Include="Views\comments1\Index.cshtml" />
     <Content Include="Views\articles\Create.cshtml" />
     <Content Include="Views\articles\Delete.cshtml" />
     <Content Include="Views\articles\Details.cshtml" />
@@ -3968,6 +3967,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707250641233_commentinclude.resx">
       <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707251400393_name_comment.resx">
+      <DependentUpon>201707251400393_name_comment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

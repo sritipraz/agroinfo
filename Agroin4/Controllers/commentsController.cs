@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Agroin4.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
@@ -17,7 +18,7 @@ namespace Agroin4.Controllers
         // GET: comments
         public ActionResult Index()
         {
-            var comments = db.comments.Include(c => c.Comment);
+            var comments = db.comments.Include(c => c.article).Include(c => c.Comment);
             return View(comments.ToList());
         }
 
@@ -37,10 +38,13 @@ namespace Agroin4.Controllers
         }
 
         // GET: comments/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-           // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text");
-            return View();
+            comment commentobj = new comment() { article_id = id };
+
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name");
+            ViewBag.parentComment = new SelectList(db.comments, "id", "user_email");
+            return View(commentobj);
         }
 
         // POST: comments/Create
@@ -52,12 +56,16 @@ namespace Agroin4.Controllers
         {
             if (ModelState.IsValid)
             {
+                comment.user_id = new Guid(User.Identity.GetUserId());
+                comment.user_email = (User.Identity.GetUserName());
+                comment.TimeOfPost = DateTime.Now;
                 db.comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
+            ViewBag.parentComment = new SelectList(db.comments, "id", "user_email", comment.parentComment);
             return View(comment);
         }
 
@@ -73,7 +81,8 @@ namespace Agroin4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
+            ViewBag.parentComment = new SelectList(db.comments, "id", "user_email", comment.parentComment);
             return View(comment);
         }
 
@@ -82,7 +91,7 @@ namespace Agroin4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,user_id,article_id,comment_text,status,parentComment")] comment comment)
+        public ActionResult Edit([Bind(Include = "id,user_id,user_email,comment_text,TimeOfPost,parentComment,article_id")] comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +99,8 @@ namespace Agroin4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
+            ViewBag.parentComment = new SelectList(db.comments, "id", "user_email", comment.parentComment);
             return View(comment);
         }
 

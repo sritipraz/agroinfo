@@ -63,12 +63,36 @@
 @*<div>
         @Html.Partial("/comments/index",new ViewDataDictionary { { "id",Model.id } })
     </div>*@
-<div>
+@*<div>
     @Html.ActionLink("comment","comment",new {id=Model.id })
-</div>
-
-
+</div>*@
+<p>
+    <div class="input-group">
+        <span class="input-group-addon" id="txtComments">Comment here</span>
+        <input type="text" class="form-control" placeholder="text" aria-describedby="basic-addon1">
+    </div>
+    <button type="button" class="btn btn-primary" id="createComment"><span class="glyphicon glyphicon-plus"></span></button>
+</p>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@section Scripts {
+<script>
+    $("#createComment").on('click', function () {
+        //Id=Model.id;
+        var comments = $('#txtComments').val();
+            //ajax request
+            $.ajax({
+                url: '/comments1/SaveComments',
+                data: { 'id': Model.id, 'commenty': comments },
+                type: 'post'
+            }).done(function (data) {
+                
+            }).fail(function (err) {
+                alert(err);
+            });
+        });
+</script>
+}

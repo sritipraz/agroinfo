@@ -15,6 +15,20 @@ namespace Agroin4.Controllers
     {
         private webAppModel db = new webAppModel();
 
+        public ActionResult SaveComments(int id,string commenty)
+            {
+            comment commentobj = new comment();
+        commentobj.user_id = new Guid(User.Identity.GetUserId());
+                commentobj.user_email = (User.Identity.GetUserName());
+                commentobj.TimeOfPost = DateTime.Now;
+            commentobj.article_id = id;
+            commentobj.comment_text = commenty;
+                db.comments.Add(commentobj);
+                db.SaveChanges();
+                
+            return RedirectToAction("Details", "articles", new { Id = id });
+
+        }
         // GET: comments1
         public ActionResult Index()
         {
@@ -43,7 +57,7 @@ namespace Agroin4.Controllers
             comment commentobj = new comment() { article_id = id };
            // ViewBag.article_id = new SelectList(db.articles, "id", "article_name");
            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text");
-            return View(commentobj);
+            return PartialView(commentobj);
         }
 
         // POST: comments1/Create
@@ -56,7 +70,7 @@ namespace Agroin4.Controllers
             if (ModelState.IsValid)
             {
                 comment.user_id = new Guid(User.Identity.GetUserId());
-                //comment.user_email = (User.Identity.GetUserName());
+                comment.user_email = (User.Identity.GetUserName());
                 comment.TimeOfPost = DateTime.Now;
                 
                 db.comments.Add(comment);

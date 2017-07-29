@@ -31,26 +31,18 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="~/assets/css/themes/all-themes.css" rel="stylesheet" />
+    @*<style>
+.content{
+    background-color: blue;
+    height: 
+}
+ </style>*@
+
+
 </head>
 
 <body class="theme-red">
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Please wait...</p>
-        </div>
-    </div>
-    <!-- #END# Page Loader -->
+    
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
@@ -277,9 +269,9 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="~/assets/images/user.png" width="48" height="48" alt="User" />
+                    <img src="~/assets/images/image-gallery/2.jpg" width="48" height="48" alt="User" />
                 </div>
-                <div class="info-container">
+                @*<div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
                     <div class="email">john.doe@example.com</div>
                     @*<div class="btn-group user-helper-dropdown">
@@ -293,8 +285,8 @@
                                 <li role="seperator" class="divider"></li>
                                 <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
                             </ul>
-                        </div>*@
-                </div>
+                        </div>
+                </div>*@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
@@ -420,7 +412,9 @@
 
     <!-- Demo Js -->
     <script src="~/assets/js/demo.js"></script>
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
     
 </body>
 </html>

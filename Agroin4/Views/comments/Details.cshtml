@@ -11,11 +11,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Comment.comment_text)
+            @Html.DisplayNameFor(model => model.article.article_name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Comment.comment_text)
+            @Html.DisplayFor(model => model.article.article_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment.user_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment.user_email)
         </dd>
 
         <dt>
@@ -27,11 +35,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.article_id)
+            @Html.DisplayNameFor(model => model.user_email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.article_id)
+            @Html.DisplayFor(model => model.user_email)
         </dd>
 
         <dt>
@@ -43,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayNameFor(model => model.TimeOfPost)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.status)
+            @Html.DisplayFor(model => model.TimeOfPost)
         </dd>
 
     </dl>

@@ -11,41 +11,47 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment.comment_text)
-        </th>
-        <th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.article.article_name)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.Comment.user_email)
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.user_id)
-        </th>
+        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.article_id)
+            @Html.DisplayNameFor(model => model.user_email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.comment_text)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.TimeOfPost)
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.article.article_name)
+        </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comment.comment_text)
+            @Html.DisplayFor(modelItem => item.Comment.user_email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.user_id)
-        </td>
+        </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.article_id)
+            @Html.DisplayFor(modelItem => item.user_email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.comment_text)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.TimeOfPost)
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
