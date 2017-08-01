@@ -33,29 +33,29 @@
     <link href="~/assets/css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-red">
+<body class="theme-light-green">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
+    @*<div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
                     </div>
                 </div>
+                <p>Please wait...</p>
             </div>
-            <p>Please wait...</p>
-        </div>
-    </div>
+        </div>*@
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
-    <div class="search-bar">
+    @*<div class="search-bar">
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
@@ -63,7 +63,7 @@
         <div class="close-search">
             <i class="material-icons">close</i>
         </div>
-    </div>
+    </div>*@
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
     <nav class="navbar">
@@ -77,194 +77,194 @@
                 <ul class="nav navbar-nav navbar-right">
                     @Html.Partial("_LoginPartial")
 
-         
+
                     @*<!-- Notifications -->
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">person_add</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>12 new members joined</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-cyan">
-                                                <i class="material-icons">add_shopping_cart</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>4 sales made</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 22 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-red">
-                                                <i class="material-icons">delete_forever</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy Doe</b> deleted account</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-orange">
-                                                <i class="material-icons">mode_edit</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy</b> changed name</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 2 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-blue-grey">
-                                                <i class="material-icons">comment</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> commented your post</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 4 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">cached</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> updated status</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-purple">
-                                                <i class="material-icons">settings</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>Settings updated</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> Yesterday
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Notifications -->
-                    <!-- Tasks -->
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">flag</i>
-                            <span class="label-count">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">TASKS</li>
-                            <li class="body">
-                                <ul class="menu tasks">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Footer display issue
-                                                <small>32%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <i class="material-icons">notifications</i>
+                                <span class="label-count">7</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">NOTIFICATIONS</li>
+                                <li class="body">
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-light-green">
+                                                    <i class="material-icons">person_add</i>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Make new buttons
-                                                <small>45%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                <div class="menu-info">
+                                                    <h4>12 new members joined</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 14 mins ago
+                                                    </p>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Create new dashboard
-                                                <small>54%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-cyan">
+                                                    <i class="material-icons">add_shopping_cart</i>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Solve transition issue
-                                                <small>65%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                                <div class="menu-info">
+                                                    <h4>4 sales made</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 22 mins ago
+                                                    </p>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Answer GitHub questions
-                                                <small>92%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-red">
+                                                    <i class="material-icons">delete_forever</i>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Tasks -->*@
+                                                <div class="menu-info">
+                                                    <h4><b>Nancy Doe</b> deleted account</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 3 hours ago
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-orange">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </div>
+                                                <div class="menu-info">
+                                                    <h4><b>Nancy</b> changed name</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 2 hours ago
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-blue-grey">
+                                                    <i class="material-icons">comment</i>
+                                                </div>
+                                                <div class="menu-info">
+                                                    <h4><b>John</b> commented your post</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 4 hours ago
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-light-green">
+                                                    <i class="material-icons">cached</i>
+                                                </div>
+                                                <div class="menu-info">
+                                                    <h4><b>John</b> updated status</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> 3 hours ago
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-purple">
+                                                    <i class="material-icons">settings</i>
+                                                </div>
+                                                <div class="menu-info">
+                                                    <h4>Settings updated</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i> Yesterday
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="javascript:void(0);">View All Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- #END# Notifications -->
+                        <!-- Tasks -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <i class="material-icons">flag</i>
+                                <span class="label-count">9</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">TASKS</li>
+                                <li class="body">
+                                    <ul class="menu tasks">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <h4>
+                                                    Footer display issue
+                                                    <small>32%</small>
+                                                </h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <h4>
+                                                    Make new buttons
+                                                    <small>45%</small>
+                                                </h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <h4>
+                                                    Create new dashboard
+                                                    <small>54%</small>
+                                                </h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <h4>
+                                                    Solve transition issue
+                                                    <small>65%</small>
+                                                </h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <h4>
+                                                    Answer GitHub questions
+                                                    <small>92%</small>
+                                                </h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="javascript:void(0);">View All Tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- #END# Tasks -->*@
 
                 </ul>
             </div>
@@ -303,38 +303,90 @@
                     <li class="header">MAIN NAVIGATION</li>
 
 
+                    @*<li class="active">
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">folder</i>
+                                <span>Infomation of crop</span>
+                            </a>
+                        </li>*@
                     <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">folder</i>
-                            <span>Infomation of crop</span>
-                        </a>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-offset-1">
+                                <i class="material-icons">home</i>
+                            </div>
+                            <div class="col-md-8 ">
+                                <span>  @Html.ActionLink("Home", "Index", "Home", null, new { style = "color:green" })</span>
+                            </div>
+                        </div>
                     </li>
-                    @*<div class="col-md-3 col-lg-offset-1">
-                            <i class="material-icons">home</i>
+                    <li class="active">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-offset-1">
+                                <i class="material-icons">folder</i>
+                            </div>
+                            <div class="col-md-8 ">
+                                <span>  @Html.ActionLink("Information of crop", "Index", "crops", null, new { style = "color:green" })</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-offset-1">
+                                <i class="material-icons">add_location</i>
+                            </div>
+                            <div class="col-md-8 ">
+                                <span>  @Html.ActionLink("Add article", "Create", "articles", null, new { style = "color:green" })</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    @*<li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">visibility</i>
+                                <span>View log</span>
+                            </a>
+                        </li>*@
+                    @*<div class="row">
+                            <div class="col-md-2 col-lg-offset-1">
+                                <i class="material-icons">visibility</i>
+                            </div>
+                            <div class="col-md-8 ">
+                                <span>  @Html.ActionLink("View log", "Index", "logs")</span>
+                            </div>
+                        </div>*@
+                    @*<li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">store </i>
+                                <span>Search Shop Nearby</span>
+                            </a>
+
+                        </li>*@
+                    <li class="active">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-offset-1">
+                            <i class="material-icons">store</i>
                         </div>
                         <div class="col-md-8 ">
-                            <span>  @Html.ActionLink("Home", "Index", "Home")</span>
-                        </div>*@
-
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">visibility</i>
-                            <span>View log</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">store </i>
-                            <span>Search Shop Nearby</span>
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                            <span>  @Html.ActionLink("Search Shop Nearby", "search", "shops", null, new { style = "color:red" })</span>
+                        </div>
+                    </div>
+                        </li>
+                    @*<li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">add_location</i>
+                                <span>Add a shop</span>
+                            </a>
+                        </li>*@
+                    <li class="active">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-offset-1">
                             <i class="material-icons">add_location</i>
-                            <span>Add a shop</span>
-                        </a>
-                    </li>
+                        </div>
+                        <div class="col-md-8 ">
+                            <span>  @Html.ActionLink("Add shop", "Create", "shops", null, new { style = "color:red" })</span>
+                        </div>
+                    </div>
+                        </li>
                 </ul>
             </div>
 
@@ -360,6 +412,7 @@
 
             @RenderBody()
         </div>
+        </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -370,10 +423,7 @@
                     <div class="modal-body" id="modalBody">
                         ...
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -420,7 +470,9 @@
 
     <!-- Demo Js -->
     <script src="~/assets/js/demo.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
-    
 </body>
 </html>

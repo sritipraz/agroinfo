@@ -171,7 +171,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\articlesController.cs" />
-    <Compile Include="Controllers\comments1Controller.cs" />
     <Compile Include="Controllers\cropsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
@@ -180,12 +179,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\registrationController.cs" />
     <Compile Include="Controllers\shopsController.cs" />
+    <Compile Include="Controllers\topographiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706250936082_a1added.cs" />
-    <Compile Include="Migrations\201706250936082_a1added.Designer.cs">
-      <DependentUpon>201706250936082_a1added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201706251009088_district_topograhyadded.cs" />
     <Compile Include="Migrations\201706251009088_district_topograhyadded.Designer.cs">
@@ -223,65 +219,13 @@
     <Compile Include="Migrations\201707081016302_commentadded.Designer.cs">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707090855314_log_updateadded.cs" />
-    <Compile Include="Migrations\201707090855314_log_updateadded.Designer.cs">
-      <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
+    <Compile Include="Migrations\201707270937011_yes.cs" />
+    <Compile Include="Migrations\201707270937011_yes.Designer.cs">
+      <DependentUpon>201707270937011_yes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707091009010_logadded.cs" />
-    <Compile Include="Migrations\201707091009010_logadded.Designer.cs">
-      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110945387_somthingadded.cs" />
-    <Compile Include="Migrations\201707110945387_somthingadded.Designer.cs">
-      <DependentUpon>201707110945387_somthingadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110951287_somt1added.cs" />
-    <Compile Include="Migrations\201707110951287_somt1added.Designer.cs">
-      <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707120722213_upda_logadded.cs" />
-    <Compile Include="Migrations\201707120722213_upda_logadded.Designer.cs">
-      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707130743360_registeradded.cs" />
-    <Compile Include="Migrations\201707130743360_registeradded.Designer.cs">
-      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707171307200_cropview_modeladded.cs" />
-    <Compile Include="Migrations\201707171307200_cropview_modeladded.Designer.cs">
-      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707180410544_nullableArticle.cs" />
-    <Compile Include="Migrations\201707180410544_nullableArticle.Designer.cs">
-      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190741258_aaadded.cs" />
-    <Compile Include="Migrations\201707190741258_aaadded.Designer.cs">
-      <DependentUpon>201707190741258_aaadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190742520_guidadded.cs" />
-    <Compile Include="Migrations\201707190742520_guidadded.Designer.cs">
-      <DependentUpon>201707190742520_guidadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190824476_somethingadded.cs" />
-    <Compile Include="Migrations\201707190824476_somethingadded.Designer.cs">
-      <DependentUpon>201707190824476_somethingadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190856334_useremail_article.cs" />
-    <Compile Include="Migrations\201707190856334_useremail_article.Designer.cs">
-      <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707231210245_commentchange.cs" />
-    <Compile Include="Migrations\201707231210245_commentchange.Designer.cs">
-      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707250635219_commentexclude.cs" />
-    <Compile Include="Migrations\201707250635219_commentexclude.Designer.cs">
-      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707250641233_commentinclude.cs" />
-    <Compile Include="Migrations\201707250641233_commentinclude.Designer.cs">
-      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
+    <Compile Include="Migrations\201707270938434_yes2.cs" />
+    <Compile Include="Migrations\201707270938434_yes2.Designer.cs">
+      <DependentUpon>201707270938434_yes2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -389,6 +333,8 @@
     <Content Include="assets\images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-9.jpg" />
+    <Content Include="assets\images\jumbotronbackground.jpg" />
+    <Content Include="assets\images\nepal topography.png" />
     <Content Include="assets\images\screenshot.png" />
     <Content Include="assets\images\thumbs-up.png" />
     <Content Include="assets\images\user-img-background.jpg" />
@@ -3853,11 +3799,6 @@
     <Content Include="Views\shops\Create.cshtml" />
     <Content Include="Views\shops\search.cshtml" />
     <Content Include="Views\shops\search1.cshtml" />
-    <Content Include="Views\logs\Create.cshtml" />
-    <Content Include="Views\logs\Delete.cshtml" />
-    <Content Include="Views\logs\Details.cshtml" />
-    <Content Include="Views\logs\Edit.cshtml" />
-    <Content Include="Views\logs\Index.cshtml" />
     <Content Include="Views\shops\message.cshtml" />
     <Content Include="Views\crops\Create.cshtml" />
     <Content Include="Views\crops\Delete.cshtml" />
@@ -3879,6 +3820,9 @@
     <Content Include="Views\articles\Details.cshtml" />
     <Content Include="Views\articles\Edit.cshtml" />
     <Content Include="Views\articles\Index.cshtml" />
+    <Content Include="Views\Shared\admin_layout.cshtml" />
+    <Content Include="Views\Shared\expert_layout.cshtml" />
+    <Content Include="Views\Shared\default_layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3894,9 +3838,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706250936082_a1added.resx">
-      <DependentUpon>201706250936082_a1added.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706251009088_district_topograhyadded.resx">
       <DependentUpon>201706251009088_district_topograhyadded.cs</DependentUpon>
     </EmbeddedResource>
@@ -3924,50 +3865,11 @@
     <EmbeddedResource Include="Migrations\201707081016302_commentadded.resx">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707090855314_log_updateadded.resx">
-      <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707270937011_yes.resx">
+      <DependentUpon>201707270937011_yes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707091009010_logadded.resx">
-      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110945387_somthingadded.resx">
-      <DependentUpon>201707110945387_somthingadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110951287_somt1added.resx">
-      <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707120722213_upda_logadded.resx">
-      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707130743360_registeradded.resx">
-      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707171307200_cropview_modeladded.resx">
-      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707180410544_nullableArticle.resx">
-      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190741258_aaadded.resx">
-      <DependentUpon>201707190741258_aaadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190742520_guidadded.resx">
-      <DependentUpon>201707190742520_guidadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190824476_somethingadded.resx">
-      <DependentUpon>201707190824476_somethingadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190856334_useremail_article.resx">
-      <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707231210245_commentchange.resx">
-      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707250635219_commentexclude.resx">
-      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707250641233_commentinclude.resx">
-      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707270938434_yes2.resx">
+      <DependentUpon>201707270938434_yes2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

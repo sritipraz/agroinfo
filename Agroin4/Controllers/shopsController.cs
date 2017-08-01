@@ -56,7 +56,7 @@ namespace Agroin4.Controllers
             {
                 db.shops.Add(shop);
                 db.SaveChanges();
-                return RedirectToAction("HR_COE");
+                return RedirectToAction("Index");
             }
 
             return View(shop);

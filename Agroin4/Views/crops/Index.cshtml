@@ -8,8 +8,8 @@
 <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
 <p>
     <button type="button" class="btn btn-primary" id="createCrop"><span class="glyphicon glyphicon-plus"></span></button>
-
-    @*@Html.ActionLink("Create New", "Create")*@
+   @*@Html.ActionLink("Create New", "Create","crops")*@
+   
 </p>
 <table id="cropList" class="table">
     <thead>
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
                     @Html.ActionLink("Moreinfo", "Moreinfo", new { id = item.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.id })
                 </td>

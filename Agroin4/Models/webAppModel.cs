@@ -40,7 +40,7 @@ namespace Agroin4.Models
 
         public System.Data.Entity.DbSet<Agroin4.Models.login_as> login_as { get; set; }
 
-        public System.Data.Entity.DbSet<Agroin4.Models.comment> comments { get; set; }
+       // public System.Data.Entity.DbSet<Agroin4.Models.comment> comments { get; set; }
 
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }

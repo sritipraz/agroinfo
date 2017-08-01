@@ -7,8 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+        <button type="button" class="btn btn-primary" id="createShop"><span class="glyphicon glyphicon-plus"></span></button>
+
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
 <table id="shopList" class="table">
     <thead>
         <tr>
@@ -58,7 +60,7 @@
         }
     </tbody>
 </table>
-@section Scripts {
+@*@section Scripts {
     <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -68,4 +70,27 @@
     </script>
 
 
+}*@
+@section Scripts {
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#shopList').DataTable({
+                "order": [[3, "desc"]]
+            });
+        })
+        $("#createShop").on('click', function () {
+            //ajax request
+            $.ajax({
+                url: '/shops/create',
+                type: 'get'
+            }).done(function (data) {
+                $("#modalBody").html(data);
+                $("#myModalLabel").html("Shop - Create");
+                $('#myModal').modal('show');
+            }).fail(function (err) {
+                alert(err);
+            });
+        });
+    </script>
 }
