@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="jQueryDataTable.DynamicLinq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jQueryDataTable.DynamicLinq.1.0.2\lib\net45\jQueryDataTable.DynamicLinq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -52,6 +56,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.0.7.6\lib\net45\System.Linq.Dynamic.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -175,17 +183,10 @@
     <Compile Include="Controllers\cropsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
-    <Compile Include="Controllers\login_asController.cs" />
-    <Compile Include="Controllers\logsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\registrationController.cs" />
     <Compile Include="Controllers\shopsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706250936082_a1added.cs" />
-    <Compile Include="Migrations\201706250936082_a1added.Designer.cs">
-      <DependentUpon>201706250936082_a1added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201706251009088_district_topograhyadded.cs" />
     <Compile Include="Migrations\201706251009088_district_topograhyadded.Designer.cs">
@@ -223,69 +224,13 @@
     <Compile Include="Migrations\201707081016302_commentadded.Designer.cs">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707090855314_log_updateadded.cs" />
-    <Compile Include="Migrations\201707090855314_log_updateadded.Designer.cs">
-      <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707091009010_logadded.cs" />
-    <Compile Include="Migrations\201707091009010_logadded.Designer.cs">
-      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110945387_somthingadded.cs" />
-    <Compile Include="Migrations\201707110945387_somthingadded.Designer.cs">
-      <DependentUpon>201707110945387_somthingadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110951287_somt1added.cs" />
-    <Compile Include="Migrations\201707110951287_somt1added.Designer.cs">
-      <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707120722213_upda_logadded.cs" />
-    <Compile Include="Migrations\201707120722213_upda_logadded.Designer.cs">
-      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707130743360_registeradded.cs" />
-    <Compile Include="Migrations\201707130743360_registeradded.Designer.cs">
-      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707171307200_cropview_modeladded.cs" />
-    <Compile Include="Migrations\201707171307200_cropview_modeladded.Designer.cs">
-      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707180410544_nullableArticle.cs" />
-    <Compile Include="Migrations\201707180410544_nullableArticle.Designer.cs">
-      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190741258_aaadded.cs" />
-    <Compile Include="Migrations\201707190741258_aaadded.Designer.cs">
-      <DependentUpon>201707190741258_aaadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190742520_guidadded.cs" />
-    <Compile Include="Migrations\201707190742520_guidadded.Designer.cs">
-      <DependentUpon>201707190742520_guidadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190824476_somethingadded.cs" />
-    <Compile Include="Migrations\201707190824476_somethingadded.Designer.cs">
-      <DependentUpon>201707190824476_somethingadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190856334_useremail_article.cs" />
-    <Compile Include="Migrations\201707190856334_useremail_article.Designer.cs">
-      <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707231210245_commentchange.cs" />
-    <Compile Include="Migrations\201707231210245_commentchange.Designer.cs">
-      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707250635219_commentexclude.cs" />
-    <Compile Include="Migrations\201707250635219_commentexclude.Designer.cs">
-      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707250641233_commentinclude.cs" />
-    <Compile Include="Migrations\201707250641233_commentinclude.Designer.cs">
-      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201707251400393_name_comment.cs" />
     <Compile Include="Migrations\201707251400393_name_comment.Designer.cs">
       <DependentUpon>201707251400393_name_comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708020714359_commentupdate.cs" />
+    <Compile Include="Migrations\201708020714359_commentupdate.Designer.cs">
+      <DependentUpon>201708020714359_commentupdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -295,13 +240,9 @@
     <Compile Include="Models\crop.cs" />
     <Compile Include="Models\district.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\log.cs" />
-    <Compile Include="Models\login_as.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\registration.cs" />
     <Compile Include="Models\seasondef.cs" />
     <Compile Include="Models\shop.cs" />
-    <Compile Include="Models\registration_tb.cs" />
     <Compile Include="Models\topography.cs" />
     <Compile Include="Models\typedef.cs" />
     <Compile Include="Models\webAppModel.cs" />
@@ -353,6 +294,8 @@
     <Content Include="assets\css\themes\theme-yellow.css" />
     <Content Include="assets\css\themes\theme-yellow.min.css" />
     <Content Include="assets\images\animation-bg.jpg" />
+    <Content Include="assets\images\download %281%29.jpg" />
+    <Content Include="assets\images\field-sky-tractor-wagon.jpg" />
     <Content Include="assets\images\image-gallery\1.jpg" />
     <Content Include="assets\images\image-gallery\10.jpg" />
     <Content Include="assets\images\image-gallery\11.jpg" />
@@ -393,6 +336,11 @@
     <Content Include="assets\images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-9.jpg" />
+    <Content Include="assets\images\images.jpg" />
+    <Content Include="assets\images\jumbotronbackground.jpg" />
+    <Content Include="assets\images\maxresdefault.jpg" />
+    <Content Include="assets\images\nepal topography.png" />
+    <Content Include="assets\images\OIL_PROMO_1240_400.jpg" />
     <Content Include="assets\images\screenshot.png" />
     <Content Include="assets\images\thumbs-up.png" />
     <Content Include="assets\images\user-img-background.jpg" />
@@ -3598,14 +3546,9 @@
     <Content Include="assets\plugins\waitme\waitMe.js" />
     <Content Include="assets\plugins\waitme\waitMe.min.css" />
     <Content Include="assets\plugins\waitme\waitMe.min.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <Content Include="assets\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
     <Content Include="assets\plugins\bootstrap-material-datetimepicker\font\Material-Design-Icons.eot" />
@@ -3802,6 +3745,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -3853,24 +3797,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\user_layout.cshtml" />
     <Content Include="Views\Shared\qa_layout.cshtml" />
-    <Content Include="Views\registration\Register.cshtml" />
-    <Content Include="Views\login_as\Login.cshtml" />
     <Content Include="Views\shops\Delete.cshtml" />
-    <Content Include="Views\shops\Details.cshtml" />
     <Content Include="Views\shops\Edit.cshtml" />
     <Content Include="Views\shops\Index.cshtml" />
     <Content Include="Views\shops\Create.cshtml" />
-    <Content Include="Views\shops\search.cshtml" />
-    <Content Include="Views\shops\search1.cshtml" />
-    <Content Include="Views\logs\Create.cshtml" />
-    <Content Include="Views\logs\Delete.cshtml" />
-    <Content Include="Views\logs\Details.cshtml" />
-    <Content Include="Views\logs\Edit.cshtml" />
-    <Content Include="Views\logs\Index.cshtml" />
     <Content Include="Views\shops\message.cshtml" />
     <Content Include="Views\crops\Create.cshtml" />
     <Content Include="Views\crops\Delete.cshtml" />
-    <Content Include="Views\crops\Details.cshtml" />
     <Content Include="Views\crops\Edit.cshtml" />
     <Content Include="Views\crops\Index.cshtml" />
     <Content Include="Views\articles\Create.cshtml" />
@@ -3878,6 +3811,8 @@
     <Content Include="Views\articles\Details.cshtml" />
     <Content Include="Views\articles\Edit.cshtml" />
     <Content Include="Views\articles\Index.cshtml" />
+    <Content Include="Views\Shared\default_layout.cshtml" />
+    <Content Include="Views\shops\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3885,17 +3820,11 @@
     <Folder Include="Views\login\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706250936082_a1added.resx">
-      <DependentUpon>201706250936082_a1added.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706251009088_district_topograhyadded.resx">
       <DependentUpon>201706251009088_district_topograhyadded.cs</DependentUpon>
     </EmbeddedResource>
@@ -3923,53 +3852,11 @@
     <EmbeddedResource Include="Migrations\201707081016302_commentadded.resx">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707090855314_log_updateadded.resx">
-      <DependentUpon>201707090855314_log_updateadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707091009010_logadded.resx">
-      <DependentUpon>201707091009010_logadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110945387_somthingadded.resx">
-      <DependentUpon>201707110945387_somthingadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110951287_somt1added.resx">
-      <DependentUpon>201707110951287_somt1added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707120722213_upda_logadded.resx">
-      <DependentUpon>201707120722213_upda_logadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707130743360_registeradded.resx">
-      <DependentUpon>201707130743360_registeradded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707171307200_cropview_modeladded.resx">
-      <DependentUpon>201707171307200_cropview_modeladded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707180410544_nullableArticle.resx">
-      <DependentUpon>201707180410544_nullableArticle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190741258_aaadded.resx">
-      <DependentUpon>201707190741258_aaadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190742520_guidadded.resx">
-      <DependentUpon>201707190742520_guidadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190824476_somethingadded.resx">
-      <DependentUpon>201707190824476_somethingadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707190856334_useremail_article.resx">
-      <DependentUpon>201707190856334_useremail_article.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707231210245_commentchange.resx">
-      <DependentUpon>201707231210245_commentchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707250635219_commentexclude.resx">
-      <DependentUpon>201707250635219_commentexclude.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707250641233_commentinclude.resx">
-      <DependentUpon>201707250641233_commentinclude.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707251400393_name_comment.resx">
       <DependentUpon>201707251400393_name_comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708020714359_commentupdate.resx">
+      <DependentUpon>201708020714359_commentupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

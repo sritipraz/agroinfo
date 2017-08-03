@@ -1,29 +1,23 @@
 ﻿@model Agroin4.Models.shop
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
 <div>
     <h4>shop</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.districts.district_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.districts.district_name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.shop_name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.shop_name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.district_id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.district_id)
         </dd>
 
         <dt>

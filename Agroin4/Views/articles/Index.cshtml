@@ -11,23 +11,23 @@
     @*@Html.ActionLink("Create New", "Create",null,new { id="createArticle", @class="btn btn-primary" })*@
     <button type="button" class="btn btn-primary" id="createArticle"><span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table  id="articleList" class="table">
+<table id="articleList" class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.article_name)
             </th>
-            
+
             @*<th>
-                @Html.DisplayNameFor(model => model.date_time)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.date_time)
+                </th>*@
             @*<th>
-                @Html.DisplayNameFor(model => model.rating)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.rating)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.expert_email)
             </th>
-            
+
             <th></th>
         </tr>
     </thead>
@@ -38,17 +38,17 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.article_name)
                 </td>
-               
+
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.date_time)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.date_time)
+                    </td>*@
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.rating)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.rating)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.expert_email)
                 </td>
-                
+
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
@@ -56,7 +56,7 @@
                 </td>
             </tr>
         }
-</tbody>
+    </tbody>
 </table>
 
 

@@ -33,8 +33,6 @@ namespace Agroin4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
-
             article article = db.articles.Find(id);
             if (article == null)
             {
@@ -64,7 +62,7 @@ namespace Agroin4.Controllers
                 article.date_time = DateTime.Now;
                 db.articles.Add(article);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new { id = article.crop_id });
             }
 
             return View(article);

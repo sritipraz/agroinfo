@@ -25,15 +25,39 @@ namespace Agroin4.Controllers
             commentobj.comment_text = commenty;
                 db.comments.Add(commentobj);
                 db.SaveChanges();
-                
-            return RedirectToAction("Details", "articles", new { Id = id });
+            //return RedirectToAction("index","comments1",new { id=Id });
+             return Json(new { redirectUrl = "/articles/Details", Id = id }, JsonRequestBehavior.AllowGet);
 
         }
+
+
+        //public ActionResult Reply(int? id)
+        //{
+        //    comment commentobj = new comment();
+        //    commentobj.user_id = new Guid(User.Identity.GetUserId());
+        //    return View(commentobj);
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Reply(comment model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        model.TimeOfPost = DateTime.Now;
+        //        db.comments.Add(model);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(model);
+        //}
+
         // GET: comments1
-        public ActionResult Index()
+        public ActionResult Index(int Id)
         {
-            var comments = db.comments.Include(c => c.article).Include(c => c.Comment);
-            return View(comments.ToList());
+            var comments = db.comments.OrderBy(p =>p.TimeOfPost).Where(p => p.article_id == Id);//.Include(c => c.article).Include(c => c.Comment);
+            return PartialView(comments.ToList());
         }
 
         // GET: comments1/Details/5
@@ -79,7 +103,7 @@ namespace Agroin4.Controllers
             }
 
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+           // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
@@ -96,7 +120,7 @@ namespace Agroin4.Controllers
                 return HttpNotFound();
             }
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+           // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
@@ -114,7 +138,7 @@ namespace Agroin4.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            //ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 

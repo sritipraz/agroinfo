@@ -15,10 +15,10 @@ namespace Agroin4.Models
         public string comment_text { get; set; }
        
         public DateTime TimeOfPost { get; set; }
-        public int? parentComment { get; set; }
+        //public int? parentComment { get; set; }
          
-        [ForeignKey("parentComment")]
-        public virtual comment Comment { get; set; }
+        //[ForeignKey("parentComment")]
+        //public virtual comment Comment { get; set; }
         public int article_id { get; set; }
 
         [ForeignKey("article_id")]

@@ -9,6 +9,6 @@ namespace Agroin4.Models
     {
         public int id { get; set; }
         public string type_name { get; set; }
-        public virtual ICollection<registration_tb> registrations { get; set; }
+       // public virtual ICollection<registration_tb> registrations { get; set; }
     }
 }

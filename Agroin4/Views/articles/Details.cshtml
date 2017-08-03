@@ -10,6 +10,10 @@
     <h4>article</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        @Html.HiddenFor(m => m.id, new { id = "hiddenIdField" })
+
+
         <dt>
             @Html.DisplayNameFor(model => model.article_name)
         </dt>
@@ -61,38 +65,51 @@
     </dl>
 </div>
 @*<div>
-        @Html.Partial("/comments/index",new ViewDataDictionary { { "id",Model.id } })
+        @Html.Partial("/comments1/index",new ViewDataDictionary { { "id",Model.id } })
     </div>*@
 @*<div>
     @Html.ActionLink("comment","comment",new {id=Model.id })
 </div>*@
 <p>
     <div class="input-group">
-        <span class="input-group-addon" id="txtComments">Comment here</span>
-        <input type="text" class="form-control" placeholder="text" aria-describedby="basic-addon1">
+        <span class="input-group-addon" >Comment here</span>
+        <input type="text" id="txtComments" class="form-control" placeholder="text" aria-describedby="basic-addon1">
     </div>
-    <button type="button" class="btn btn-primary" id="createComment"><span class="glyphicon glyphicon-plus"></span></button>
+    <button type="button" class="btn btn-primary" id="createComment">Comment</button>
 </p>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
-
+<div>
+    @Html.Action("Index", "comments1", Model.id);
+    </div>
 @section Scripts {
 <script>
     $("#createComment").on('click', function () {
         //Id=Model.id;
         var comments = $('#txtComments').val();
-            //ajax request
-            $.ajax({
-                url: '/comments1/SaveComments',
-                data: { 'id': Model.id, 'commenty': comments },
-                type: 'post'
-            }).done(function (data) {
-                
-            }).fail(function (err) {
-                alert(err);
-            });
+        var Id = $('#hiddenIdField').val();
+      @*var Id = '@Html.Raw(Json.Encode(@Model.id))';*@
+// alert(JsonModel); // json as string
+//var model = JSON.parse(JsonModel); // will give json
+        //alert(model);
+
+        $.ajax({
+            //your params as it is
+            url: '/comments1/SaveComments',
+            data: { 'id': Id, 'commenty': comments },
+              type: 'post'
+        }).done(function (response) {
+
+           var data = response.data;
+            var id = data.Id; //your id
+            var redirectURl = data.redirectUrl;
+
+            //window.location = redirectURl //for redirecting to article details page
+            //if you are passing id as parameter to the redirected page then you can do something like this.
+            window.location = redirectURl + '/' + id;
+           // window.location.href = 'Url.Action("details", "articles", new { id = "id1" })';
+        }).fail(function (error) {
+
+        });
+
         });
 </script>
 }
