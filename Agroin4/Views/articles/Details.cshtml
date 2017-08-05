@@ -77,19 +77,16 @@
     </div>
     <button type="button" class="btn btn-primary" id="createComment">Comment</button>
 </p>
-<div>
+<div id="commentsection">
     @Html.Action("Index", "comments1", Model.id);
     </div>
 @section Scripts {
 <script>
     $("#createComment").on('click', function () {
-        //Id=Model.id;
+        var model = { 'id': Id, 'comments': comments };
         var comments = $('#txtComments').val();
         var Id = $('#hiddenIdField').val();
-      @*var Id = '@Html.Raw(Json.Encode(@Model.id))';*@
-// alert(JsonModel); // json as string
-//var model = JSON.parse(JsonModel); // will give json
-        //alert(model);
+
 
         $.ajax({
             //your params as it is
@@ -97,15 +94,19 @@
             data: { 'id': Id, 'commenty': comments },
               type: 'post'
         }).done(function (response) {
-
-           var data = response.data;
-            var id = data.Id; //your id
-            var redirectURl = data.redirectUrl;
-
             //window.location = redirectURl //for redirecting to article details page
             //if you are passing id as parameter to the redirected page then you can do something like this.
-            window.location = redirectURl + '/' + id;
-           // window.location.href = 'Url.Action("details", "articles", new { id = "id1" })';
+          // window.location = response.redirectUrl + '/' + response.Id;
+            // window.location.href = 'Url.Action("details", "articles", new { id = "id1" })';
+
+           $.ajax({
+               url: '/comments1/Index?Id=' + response.Id,
+               type:'GET'
+           }).done(function(responsecomment) {
+               $('#commentsection').html(responsecomment);
+           }).fail(function(err) {
+               alert("Error Occured : " + err);
+           });
         }).fail(function (error) {
 
         });

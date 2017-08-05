@@ -11,14 +11,16 @@ using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
+    //[Authorize(Roles ="Admin")]
     public class articlesController : Controller
     {
         private webAppModel db = new webAppModel();
-        public ActionResult comment(int id)
-        {
-            return RedirectToAction("create", "comments", new { Id = id });
+        //public ActionResult comment(int id)
+        //{
+        //    return RedirectToAction("create", "comments", new { Id = id });
 
-        }
+        //}
+
         // GET: articles
         public ActionResult Index(int? id)
         {
@@ -40,7 +42,7 @@ namespace Agroin4.Controllers
             }
             return View(article);
         }
-
+        [Authorize]
         // GET: articles/Create
         public ActionResult Create()
         {
@@ -68,7 +70,7 @@ namespace Agroin4.Controllers
             return View(article);
         }
 
-        
+        [Authorize]
         // GET: articles/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -99,7 +101,7 @@ namespace Agroin4.Controllers
             }
             return View(article);
         }
-
+        [Authorize]
         // GET: articles/Delete/5
         public ActionResult Delete(int? id)
         {

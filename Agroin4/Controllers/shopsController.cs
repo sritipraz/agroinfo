@@ -10,6 +10,7 @@ using Agroin4.Models;
 
 namespace Agroin4.Controllers
 {
+    //[Authorize(Roles = "Expert")]
     public class shopsController : Controller
     {
         private webAppModel db = new webAppModel();
@@ -35,7 +36,7 @@ namespace Agroin4.Controllers
             }
             return View();
         }
-
+        [Authorize]
         // GET: shops/Create
         public ActionResult Create()
         {
@@ -71,6 +72,8 @@ namespace Agroin4.Controllers
             TempData["testmsg"] = "<script>alert('Requested Successfully ');</script>";
             return View();
         }
+
+        [Authorize]
         // GET: shops/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -103,7 +106,7 @@ namespace Agroin4.Controllers
             }
             return View(shop);
         }
-
+        [Authorize]
         // GET: shops/Delete/5
         public ActionResult Delete(int? id)
         {

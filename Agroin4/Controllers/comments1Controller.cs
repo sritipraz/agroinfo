@@ -11,10 +11,11 @@ using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
+    
     public class comments1Controller : Controller
     {
         private webAppModel db = new webAppModel();
-
+        [Authorize]
         public ActionResult SaveComments(int id,string commenty)
             {
             comment commentobj = new comment();
@@ -52,14 +53,14 @@ namespace Agroin4.Controllers
 
         //    return View(model);
         //}
-
+        [Authorize]
         // GET: comments1
         public ActionResult Index(int Id)
         {
-            var comments = db.comments.OrderBy(p =>p.TimeOfPost).Where(p => p.article_id == Id);//.Include(c => c.article).Include(c => c.Comment);
+            var comments = db.comments.OrderByDescending(p =>p.TimeOfPost).Where(p => p.article_id == Id);//.Include(c => c.article).Include(c => c.Comment);
             return PartialView(comments.ToList());
         }
-
+        [Authorize]
         // GET: comments1/Details/5
         public ActionResult Details(int? id)
         {
@@ -74,7 +75,7 @@ namespace Agroin4.Controllers
             }
             return View(comment);
         }
-
+        [Authorize]
         // GET: comments1/Create
         public ActionResult Create(int id)
         {
@@ -106,7 +107,7 @@ namespace Agroin4.Controllers
            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
-
+        [Authorize]
         // GET: comments1/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -141,7 +142,7 @@ namespace Agroin4.Controllers
             //ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
-
+        [Authorize]
         // GET: comments1/Delete/5
         public ActionResult Delete(int? id)
         {

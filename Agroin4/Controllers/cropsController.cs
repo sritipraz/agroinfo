@@ -10,6 +10,7 @@ using Agroin4.Models;
 
 namespace Agroin4.Controllers
 {
+    //[Authorize(Roles = "User")]
     public class cropsController : Controller
     {
         private webAppModel db = new webAppModel();
@@ -39,7 +40,7 @@ namespace Agroin4.Controllers
             }
             return View(crop);
         }
-
+        [Authorize]
         // GET: crops/Create
         public ActionResult Create()
         {
@@ -66,7 +67,7 @@ namespace Agroin4.Controllers
            // ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
             return PartialView(crop);
         }
-
+        [Authorize]
         // GET: crops/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -101,7 +102,7 @@ namespace Agroin4.Controllers
             ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
             return View(crop);
         }
-
+        [Authorize]
         // GET: crops/Delete/5
         public ActionResult Delete(int? id)
         {
