@@ -5001,7 +5001,7 @@ section.content {
       color: #555; }
   .input-group input[type="text"],
   .input-group .form-control {
-    border: none;
+    /*border: none;*/
     box-shadow: none;
     padding-left: 0; }
   .input-group .form-control:focus {
@@ -7914,8 +7914,10 @@ fieldset[disabled] .form-control {
 .dataTables_wrapper {
   position: relative; }
   .dataTables_wrapper select {
-    border: none;
-    border-bottom: 1px solid #ddd;
+    /*border: none;*/
+    border-bottom: 1px solid black;
+    border-right:1px solid black;
+
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
@@ -7938,9 +7940,11 @@ fieldset[disabled] .form-control {
     -moz-box-shadow: none;
     -ms-box-shadow: none;
     box-shadow: none;
-    border: none;
+    /*border: none;*/
     font-size: 12px;
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px solid black; 
+    border-right:1px solid black;
+  }
     .dataTables_wrapper input[type="search"]:focus, .dataTables_wrapper input[type="search"]:active {
       border-bottom: 2px solid #1f91f3; }
   .dataTables_wrapper .dt-buttons {

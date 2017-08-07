@@ -39,6 +39,7 @@ namespace Agroin4.Controllers
             }
             return View(crop);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: crops/Create
         public ActionResult Create()
@@ -66,6 +67,7 @@ namespace Agroin4.Controllers
            // ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
             return PartialView(crop);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: crops/Edit/5
         public ActionResult Edit(int? id)
@@ -101,6 +103,7 @@ namespace Agroin4.Controllers
             ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
             return View(crop);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: crops/Delete/5
         public ActionResult Delete(int? id)

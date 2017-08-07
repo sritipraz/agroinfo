@@ -4,93 +4,98 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
-<h2>Index</h2>
-
-<p>
+<div class="card">
+  
+    <div class="header bg-light-green">
+        <h2 class="col-light-green p-l-10 ">Index</h2>
+    </div>
+    <p>
         <button type="button" class="btn btn-primary" id="createShop"><span class="glyphicon glyphicon-plus"></span></button>
 
         @*@Html.ActionLink("Create New", "Create")*@
     </p>
-<table id="shopList" class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.shop_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.districts.district_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.contact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table id="shopList" class="table table-hover">
+        <thead style="background-color:#bade61 ">
+
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.shop_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.districts.district_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.contact)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.shop_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.districts.district_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.contact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
-@*@section Scripts {
-    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#shopList').DataTable();
-        })
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shop_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.districts.district_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*@section Scripts {
+            <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#shopList').DataTable();
+                })
 
-    </script>
+            </script>
 
 
-}*@
-@section Scripts {
-    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#shopList').DataTable({
-                "order": [[3, "desc"]]
+        }*@
+    @section Scripts {
+        <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#shopList').DataTable({
+                    "order": [[3, "desc"]]
+                });
+            })
+            $("#createShop").on('click', function () {
+                //ajax request
+                $.ajax({
+                    url: '/shops/create',
+                    type: 'get'
+                }).done(function (data) {
+                    $("#modalBody").html(data);
+                    $("#myModalLabel").html("Shop - Create");
+                    $('#myModal').modal('show');
+                }).fail(function (err) {
+                    alert(err);
+                });
             });
-        })
-        $("#createShop").on('click', function () {
-            //ajax request
-            $.ajax({
-                url: '/shops/create',
-                type: 'get'
-            }).done(function (data) {
-                $("#modalBody").html(data);
-                $("#myModalLabel").html("Shop - Create");
-                $('#myModal').modal('show');
-            }).fail(function (err) {
-                alert(err);
-            });
-        });
-    </script>
-}
+        </script>
+    }
+</div>

@@ -11,17 +11,64 @@ using Microsoft.AspNet.Identity;
 
 namespace Agroin4.Controllers
 {
+    [Authorize]
     public class comments1Controller : Controller
     {
         private webAppModel db = new webAppModel();
+        [Authorize]
 
-        // GET: comments1
-        public ActionResult Index()
+        public ActionResult message()
         {
-            var comments = db.comments.Include(c => c.article).Include(c => c.Comment);
-            return View(comments.ToList());
+            TempData["testmsg"] = "<script>alert('Request Denied ');</script>";
+            return View();
+        }
+        [Authorize]
+
+        public ActionResult SaveComments(int id, string commenty)
+        {
+            comment commentobj = new comment();
+            commentobj.user_id = new Guid(User.Identity.GetUserId());
+            commentobj.user_email = (User.Identity.GetUserName());
+            commentobj.TimeOfPost = DateTime.Now;
+            commentobj.article_id = id;
+            commentobj.comment_text = commenty;
+            db.comments.Add(commentobj);
+            db.SaveChanges();
+            //return RedirectToAction("index","comments1",new { id=Id });
+            return Json(new { redirectUrl = "/articles/Details", Id = id }, JsonRequestBehavior.AllowGet);
+
         }
 
+
+        //public ActionResult Reply(int? id)
+        //{
+        //    comment commentobj = new comment();
+        //    commentobj.user_id = new Guid(User.Identity.GetUserId());
+        //    return View(commentobj);
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Reply(comment model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        model.TimeOfPost = DateTime.Now;
+        //        db.comments.Add(model);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(model);
+        //}
+       [AllowAnonymous]
+        // GET: comments1
+        public ActionResult Index(int Id)
+        {
+            var comments = db.comments.OrderByDescending(p => p.TimeOfPost).Where(p => p.article_id == Id);//.Include(c => c.article).Include(c => c.Comment);
+            return PartialView(comments.ToList());
+        }
+        [Authorize]
         // GET: comments1/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,14 +83,15 @@ namespace Agroin4.Controllers
             }
             return View(comment);
         }
+        [Authorize]
 
         // GET: comments1/Create
         public ActionResult Create(int id)
         {
             comment commentobj = new comment() { article_id = id };
-           // ViewBag.article_id = new SelectList(db.articles, "id", "article_name");
-           // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text");
-            return View(commentobj);
+            // ViewBag.article_id = new SelectList(db.articles, "id", "article_name");
+            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text");
+            return PartialView(commentobj);
         }
 
         // POST: comments1/Create
@@ -51,24 +99,24 @@ namespace Agroin4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( comment comment)
+        public ActionResult Create(comment comment)
         {
             if (ModelState.IsValid)
             {
                 comment.user_id = new Guid(User.Identity.GetUserId());
-                //comment.user_email = (User.Identity.GetUserName());
+                comment.user_email = (User.Identity.GetUserName());
                 comment.TimeOfPost = DateTime.Now;
-                
+
                 db.comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
-
+        [Authorize]
         // GET: comments1/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,12 +125,21 @@ namespace Agroin4.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             comment comment = db.comments.Find(id);
+            Guid current_id = new Guid(User.Identity.GetUserId());
+            //Guid admin_id = new Guid("b4f9e79e-d000-481a-91dc-511e7f513b7a");
+
+            if (current_id != comment.user_id)
+
+            {
+                return RedirectToAction("message");
+
+            }
             if (comment == null)
             {
                 return HttpNotFound();
             }
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            // ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
 
@@ -91,19 +148,19 @@ namespace Agroin4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,user_id,comment_text,TimeOfPost,parentComment,article_id")] comment comment)
+        public ActionResult Edit( comment comment)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "articles", new { id = comment.article_id });
             }
             ViewBag.article_id = new SelectList(db.articles, "id", "article_name", comment.article_id);
-            ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
+            //ViewBag.parentComment = new SelectList(db.comments, "id", "comment_text", comment.parentComment);
             return View(comment);
         }
-
+        [Authorize]
         // GET: comments1/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -112,6 +169,15 @@ namespace Agroin4.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             comment comment = db.comments.Find(id);
+            Guid current_id = new Guid(User.Identity.GetUserId());
+            //Guid admin_id = new Guid("b4f9e79e-d000-481a-91dc-511e7f513b7a");
+
+            if (current_id != comment.user_id)
+
+            {
+                return RedirectToAction("message");
+
+            }
             if (comment == null)
             {
                 return HttpNotFound();
@@ -127,7 +193,7 @@ namespace Agroin4.Controllers
             comment comment = db.comments.Find(id);
             db.comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details","articles",new { id = comment.article_id });
         }
 
         protected override void Dispose(bool disposing)

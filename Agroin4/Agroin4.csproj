@@ -171,15 +171,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\articlesController.cs" />
+    <Compile Include="Controllers\comments1Controller.cs" />
     <Compile Include="Controllers\cropsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
-    <Compile Include="Controllers\login_asController.cs" />
-    <Compile Include="Controllers\logsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\registrationController.cs" />
     <Compile Include="Controllers\shopsController.cs" />
-    <Compile Include="Controllers\topographiesController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
+    <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,31 +218,23 @@
     <Compile Include="Migrations\201707081016302_commentadded.Designer.cs">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707270937011_yes.cs" />
-    <Compile Include="Migrations\201707270937011_yes.Designer.cs">
-      <DependentUpon>201707270937011_yes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707270938434_yes2.cs" />
-    <Compile Include="Migrations\201707270938434_yes2.Designer.cs">
-      <DependentUpon>201707270938434_yes2.cs</DependentUpon>
+    <Compile Include="Migrations\201708051403018_newprojadded.cs" />
+    <Compile Include="Migrations\201708051403018_newprojadded.Designer.cs">
+      <DependentUpon>201708051403018_newprojadded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\article.cs" />
-    <Compile Include="Models\cal.cs" />
     <Compile Include="Models\comment.cs" />
     <Compile Include="Models\crop.cs" />
     <Compile Include="Models\district.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\log.cs" />
-    <Compile Include="Models\login_as.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\registration.cs" />
     <Compile Include="Models\seasondef.cs" />
     <Compile Include="Models\shop.cs" />
-    <Compile Include="Models\registration_tb.cs" />
     <Compile Include="Models\topography.cs" />
-    <Compile Include="Models\typedef.cs" />
+    <Compile Include="Models\UserRolesViewModel.cs" />
     <Compile Include="Models\webAppModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -292,7 +283,12 @@
     <Content Include="assets\css\themes\theme-teal.min.css" />
     <Content Include="assets\css\themes\theme-yellow.css" />
     <Content Include="assets\css\themes\theme-yellow.min.css" />
+    <Content Include="assets\images\1959594979-Farming-quotes1.jpg" />
+    <Content Include="assets\images\89ac8f29d9bb1059671859a8bff8b141--agriculture-quotes-farming-quotes.jpg" />
+    <Content Include="assets\images\9b93199573a95f0a4d474adbef684ef0--farming-quotes-gardening-quotes.jpg" />
     <Content Include="assets\images\animation-bg.jpg" />
+    <Content Include="assets\images\download %281%29.jpg" />
+    <Content Include="assets\images\field-sky-tractor-wagon.jpg" />
     <Content Include="assets\images\image-gallery\1.jpg" />
     <Content Include="assets\images\image-gallery\10.jpg" />
     <Content Include="assets\images\image-gallery\11.jpg" />
@@ -333,13 +329,18 @@
     <Content Include="assets\images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="assets\images\image-gallery\thumb\thumb-9.jpg" />
+    <Content Include="assets\images\images.jpg" />
     <Content Include="assets\images\jumbotronbackground.jpg" />
+    <Content Include="assets\images\maxresdefault.jpg" />
     <Content Include="assets\images\nepal topography.png" />
+    <Content Include="assets\images\OIL_PROMO_1240_400.jpg" />
+    <Content Include="assets\images\quote-gandhi.jpg" />
     <Content Include="assets\images\screenshot.png" />
     <Content Include="assets\images\thumbs-up.png" />
     <Content Include="assets\images\user-img-background.jpg" />
     <Content Include="assets\images\user.jpg" />
     <Content Include="assets\images\user.png" />
+    <Content Include="assets\images\weeding-is-as-necessary.jpg" />
     <Content Include="assets\js\admin.js" />
     <Content Include="assets\js\demo.js" />
     <Content Include="assets\js\helpers.js" />
@@ -3791,7 +3792,6 @@
     <Content Include="Views\Shared\user_layout.cshtml" />
     <Content Include="Views\Shared\qa_layout.cshtml" />
     <Content Include="Views\registration\Register.cshtml" />
-    <Content Include="Views\login_as\Login.cshtml" />
     <Content Include="Views\shops\Delete.cshtml" />
     <Content Include="Views\shops\Details.cshtml" />
     <Content Include="Views\shops\Edit.cshtml" />
@@ -3805,11 +3805,6 @@
     <Content Include="Views\crops\Details.cshtml" />
     <Content Include="Views\crops\Edit.cshtml" />
     <Content Include="Views\crops\Index.cshtml" />
-    <Content Include="Views\comments\Create.cshtml" />
-    <Content Include="Views\comments\Delete.cshtml" />
-    <Content Include="Views\comments\Details.cshtml" />
-    <Content Include="Views\comments\Edit.cshtml" />
-    <Content Include="Views\comments\Index.cshtml" />
     <Content Include="Views\comments1\Create.cshtml" />
     <Content Include="Views\comments1\Delete.cshtml" />
     <Content Include="Views\comments1\Details.cshtml" />
@@ -3823,6 +3818,10 @@
     <Content Include="Views\Shared\admin_layout.cshtml" />
     <Content Include="Views\Shared\expert_layout.cshtml" />
     <Content Include="Views\Shared\default_layout.cshtml" />
+    <Content Include="Views\articles\message.cshtml" />
+    <Content Include="Views\UserRoles\AddUserToRoles.cshtml" />
+    <Content Include="Views\UserRoles\Index.cshtml" />
+    <Content Include="Views\comments1\message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3865,11 +3864,8 @@
     <EmbeddedResource Include="Migrations\201707081016302_commentadded.resx">
       <DependentUpon>201707081016302_commentadded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707270937011_yes.resx">
-      <DependentUpon>201707270937011_yes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707270938434_yes2.resx">
-      <DependentUpon>201707270938434_yes2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708051403018_newprojadded.resx">
+      <DependentUpon>201708051403018_newprojadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

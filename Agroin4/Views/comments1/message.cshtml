@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Unsuccessful";
+}
+
+
+
+@if (TempData["testmsg"] != null)
+{
+    @Html.Raw(TempData["testmsg"])
+}
+
+    @*<div>
+            @Html.ActionLink("Back ", "Index")
+        </div>*@

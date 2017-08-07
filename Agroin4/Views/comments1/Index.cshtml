@@ -1,63 +1,54 @@
-﻿@model IEnumerable<Agroin4.Models.comment>
+﻿@using Agroin4.CustomHtmlHelpers
+@model IEnumerable<Agroin4.Models.comment>
 
 @{
     ViewBag.Title = "Index";
 }
+<div class="card">
+    <div class="header bg-light-green">
+        <h2 class="col-light-green p-l-10 ">Comments</h2>
+    </div>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.article.article_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment.comment_text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comment_text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeOfPost)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.article.article_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment.comment_text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comment_text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeOfPost)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-            @*@Html.ActionLink("c", "Delete", new { id = item.id })*@
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comment_text)
+            </th>
 
 
-            @*@Html.ActionLink("Reply", "", new { id = item.id })*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_email)
+                </td>
+                <td>
+                    <div style="overflow:auto;word-wrap:hyphenate;text-align:justify;max-width:700px">
+                        @Html.DisplayWithBreaksFor(modelItem => item.comment_text)
+                    </div>
+                   
+                </td>
 
 
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
 
-</table>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

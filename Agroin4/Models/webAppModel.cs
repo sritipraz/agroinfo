@@ -19,8 +19,8 @@ namespace Agroin4.Models
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-        public virtual DbSet<registration_tb> registrations { get; set; }
-        public virtual DbSet<typedef> typedefs { get; set; }
+       // public virtual DbSet<registration_tb> registrations { get; set; }
+       // public virtual DbSet<typedef> typedefs { get; set; }
         public virtual DbSet<topography>topographys { get; set; }
         public virtual DbSet<district>districts { get; set; }
         public virtual DbSet<crop>crops { get; set; }
@@ -31,16 +31,16 @@ namespace Agroin4.Models
 
        //public virtual DbSet<comment> comments { get; set; }
        // public virtual DbSet<sub_comment> sub_comments { get; set; }
-        public virtual DbSet<log> logs { get; set; }
+       // public virtual DbSet<log> logs { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<registration_tb>().MapToStoredProcedures();
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<registration_tb>().MapToStoredProcedures();
+        //}
 
-        public System.Data.Entity.DbSet<Agroin4.Models.login_as> login_as { get; set; }
+       
 
-       // public System.Data.Entity.DbSet<Agroin4.Models.comment> comments { get; set; }
+        public System.Data.Entity.DbSet<Agroin4.Models.comment> comments { get; set; }
 
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }

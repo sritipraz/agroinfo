@@ -8,20 +8,26 @@ using System.Web;
 using System.Web.Mvc;
 using Agroin4.Models;
 using Microsoft.AspNet.Identity;
+using System.Web.Security;
 
 namespace Agroin4.Controllers
 {
     public class articlesController : Controller
     {
         private webAppModel db = new webAppModel();
+        //public ActionResult comment(int id)
+        //{
+        //    return RedirectToAction("create", "comments", new { Id = id });
 
+        //}
+        [AllowAnonymous]
         // GET: articles
         public ActionResult Index(int? id)
         {
             var articleobj = db.articles.Where(p => p.crop_id == id).ToList();
             return View(articleobj);
         }
-
+        [AllowAnonymous]
         // GET: articles/Details/5
         public ActionResult Details(int? id)
         {
@@ -29,8 +35,6 @@ namespace Agroin4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // ViewBag.topography_id = new SelectList(db.topographys, "id", "topography_name", crop.topography_id);
-
             article article = db.articles.Find(id);
             if (article == null)
             {
@@ -38,7 +42,7 @@ namespace Agroin4.Controllers
             }
             return View(article);
         }
-
+        [Authorize(Roles = "Admin,Expert")]
         // GET: articles/Create
         public ActionResult Create()
         {
@@ -60,17 +64,18 @@ namespace Agroin4.Controllers
                 article.date_time = DateTime.Now;
                 db.articles.Add(article);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new { id = article.crop_id });
             }
 
             return View(article);
         }
-
-        public ActionResult comment(int id)
+        public ActionResult message()
         {
-            return RedirectToAction("create","comments1", new { Id= id});
-
+            TempData["testmsg"] = "<script>alert('Request Denied ');</script>";
+            return View();
         }
+        [Authorize(Roles = "Admin,Expert")]
+
         // GET: articles/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,7 +83,18 @@ namespace Agroin4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+           
+            ViewData["IdcropList"] = db.crops.Select(p => new SelectListItem() { Text = p.crop_name, Value = p.id.ToString() }).AsEnumerable();
             article article = db.articles.Find(id);
+            Guid current_id= new Guid(User.Identity.GetUserId());
+            //Guid admin_id = new Guid("b4f9e79e-d000-481a-91dc-511e7f513b7a");
+
+            if (current_id != article.expert_id)
+                
+            {
+                return RedirectToAction("message" );
+
+            }
             if (article == null)
             {
                 return HttpNotFound();
@@ -91,16 +107,20 @@ namespace Agroin4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,article_name,crop_id,date_time,rating,expert_id,article_description")] article article)
+        public ActionResult Edit(article article)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(article).State = EntityState.Modified;
+                //article.expert_email = (User.Identity.GetUserName());
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new { id=article.crop_id});
             }
             return View(article);
         }
+
+        [Authorize(Roles = "Admin,Expert")]
 
         // GET: articles/Delete/5
         public ActionResult Delete(int? id)
@@ -110,6 +130,16 @@ namespace Agroin4.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             article article = db.articles.Find(id);
+            Guid current_id = new Guid(User.Identity.GetUserId());
+            //Guid admin_id = new Guid("b4f9e79e-d000-481a-91dc-511e7f513b7a");
+            
+
+            if (current_id != article.expert_id) /*||  !( Roles.GetRolesForUser().Contains("Admin") )  )*/
+
+            {
+                return RedirectToAction("message");
+
+            }
             if (article == null)
             {
                 return HttpNotFound();
@@ -125,7 +155,7 @@ namespace Agroin4.Controllers
             article article = db.articles.Find(id);
             db.articles.Remove(article);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index",new { id = article.crop_id });
         }
 
         protected override void Dispose(bool disposing)

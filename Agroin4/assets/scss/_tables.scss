@@ -3,8 +3,8 @@
         tr {
             td, th {
                 padding: 10px;
-                border-top: 1px solid #eee;
-                border-bottom: 1px solid #eee;
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
             }
         }
 
@@ -55,13 +55,15 @@
 }
 
 .table-bordered {
-    border-top: 1px solid #eee;
+    border-top: 1px solid ;
+    
+
 
     tbody {
         tr {
             td, th {
                 padding: 10px;
-                border: 1px solid #eee;
+                border: 1px solid black;
             }
         }
     }
@@ -70,7 +72,7 @@
         tr {
             th {
                 padding: 10px;
-                border: 1px solid #eee;
+                border: 1px solid black;
             }
         }
     }

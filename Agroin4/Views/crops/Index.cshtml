@@ -4,75 +4,84 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
-<p>
-    <button type="button" class="btn btn-primary" id="createCrop"><span class="glyphicon glyphicon-plus"></span></button>
-   @*@Html.ActionLink("Create New", "Create","crops")*@
-   
-</p>
-<table id="cropList" class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.crop_name)
-            </th>
+<div class="card">
+    
+    <div class="header bg-light-green">
+        <h2 class="col-light-green p-l-10 ">Index</h2>
+    </div>
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <p>
+        <button type="button" class="btn btn-primary" id="createCrop"><span class="glyphicon glyphicon-plus "></span></button>
+        @*@Html.ActionLink("Create New", "Create","crops")*@
 
-            <th>
-                @Html.DisplayNameFor(model => model.topography_Name)
-            </th>
+    </p>
 
-            <th>
-                @Html.DisplayNameFor(model => model.season_Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table id="cropList" class="table table-hover">
+        <thead style="background-color:#bade61 "  >
+
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.crop_name)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.crop_name)
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.topography_Name)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.topography_Name)
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.season_Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
-                    @Html.ActionLink("Moreinfo", "Moreinfo", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.season_Name)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
-@section Scripts {
-    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#cropList').DataTable({
-                "order": [[3, "desc"]]
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.crop_name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.topography_Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.season_Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
+                        @Html.ActionLink("Moreinfo", "Moreinfo", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @section Scripts {
+        <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    
+        <script>
+            $(document).ready(function () {
+                $('#cropList').DataTable({
+                    "order": [[3, "desc"]]
+                });
+            })
+            $("#createCrop").on('click', function () {
+                //ajax request
+                $.ajax({
+                    url: '/crops/create',
+                    type: 'get'
+                }).done(function (data) {
+                    $("#modalBody").html(data);
+                    $("#myModalLabel").html("Crop - Create");
+                    $('#myModal').modal('show');
+                }).fail(function (err) {
+                    alert(err);
+                });
             });
-        })
-        $("#createCrop").on('click', function () {
-            //ajax request
-            $.ajax({
-                url: '/crops/create',
-                type: 'get'
-            }).done(function (data) {
-                $("#modalBody").html(data);
-                $("#myModalLabel").html("Crop - Create");
-                $('#myModal').modal('show');
-            }).fail(function (err) {
-                alert(err);
-            });
-        });
-    </script>
-}
+        </script>
+   
+    }
+</div>

@@ -4,61 +4,68 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+@*<h2>Delete</h2>*@
+<div class="card">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>shop</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.shop_name)
-        </dt>
+    
+    <div class="header bg-light-green">
+        <h2 class="col-light-green p-l-10 ">Are you sure you want to delete this?</h2>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.shop_name)
-        </dd>
+    <div>
+        @*<h4>shop</h4>
+            <hr />*@
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.shop_name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.district_id)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.shop_name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.district_id)
-        </dd>
+            @*<dt>
+                @Html.DisplayNameFor(model => model.district_id)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.address)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.district_id)
+            </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.address)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contact)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.contact)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.contact)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.contact)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>

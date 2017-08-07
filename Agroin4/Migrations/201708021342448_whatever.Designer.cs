@@ -7,13 +7,13 @@ namespace Agroin4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class yes : IMigrationMetadata
+    public sealed partial class whatever : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(yes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(whatever));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707270937011_yes"; }
+            get { return "201708021342448_whatever"; }
         }
         
         string IMigrationMetadata.Source

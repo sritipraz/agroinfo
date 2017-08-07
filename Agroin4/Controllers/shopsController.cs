@@ -35,6 +35,7 @@ namespace Agroin4.Controllers
             }
             return View();
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: shops/Create
         public ActionResult Create()
@@ -56,7 +57,7 @@ namespace Agroin4.Controllers
             {
                 db.shops.Add(shop);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HR_COE");
             }
 
             return View(shop);
@@ -71,6 +72,9 @@ namespace Agroin4.Controllers
             TempData["testmsg"] = "<script>alert('Requested Successfully ');</script>";
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
+
         // GET: shops/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -103,6 +107,7 @@ namespace Agroin4.Controllers
             }
             return View(shop);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: shops/Delete/5
         public ActionResult Delete(int? id)
